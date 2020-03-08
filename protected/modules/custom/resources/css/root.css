@@ -1,0 +1,153 @@
+body.user{
+  background-color: #fff;
+  padding-top: 80px;
+}
+
+.form-ingredient span.input-group-addon{
+    width: 100px;
+    padding: 0;
+}
+
+.form-ingredient span.input-group-addon input {
+    border-left: 0;
+    border-right: 0;
+}
+
+/*** Search Box ***/
+.cntr .cntr-innr .search {
+	display: inline-block;
+	position: relative;
+	height: 36px;
+	width: 36px;
+	box-sizing: border-box;
+	margin: 0px 8px 7px 0px;
+	padding: 7px 9px 0px 9px;
+	border: 3px solid #222;
+	border-radius: 25px;
+	transition: all 200ms ease;
+	cursor: text;
+}
+
+.cntr .cntr-innr .search:after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 20px;
+  right: -5px;
+  top: 21px;
+  background: #222;
+  border-radius: 3px;
+  transform: rotate(-45deg);
+  transition: all 200ms ease;
+}
+
+.cntr .cntr-innr .search.active,
+.cntr .cntr-innr .search:hover {
+  width: 100%;
+}
+
+.cntr .cntr-innr .search .fa.fa-search{
+  display: none;
+  position: absolute;
+  top: 8px;
+  left: 15px;
+}
+.cntr .cntr-innr .search button{
+  display: none;
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  border-radius: 30px;
+}
+
+.cntr .cntr-innr .search.active .fa.fa-search,
+.cntr .cntr-innr .search:hover .fa.fa-search,
+.cntr .cntr-innr .search.active button,
+.cntr .cntr-innr .search:hover button{
+  display: block;
+}
+
+.cntr .cntr-innr .search.active:after,
+.cntr .cntr-innr .search:hover:after{
+  height: 0px;
+}
+
+.cntr .cntr-innr .search input{
+  width: 100%;
+  border: none;
+  outline-width: 0px;
+  bottom: 3px;
+  position: relative;
+  padding-left: 34px;
+  background: transparent;
+}
+
+body.user div[data-stream="/deepfrypan/s/recipes/space/space/stream"]{
+    display:block;
+    max-width:1080px;
+    margin:auto;
+}
+
+body.user div[data-stream="/deepfrypan/s/recipes/space/space/stream"] .wall-entry {
+    display:inline-block;
+    height:266px;
+    width: 266px;
+}
+
+body.user div[data-stream="/deepfrypan/s/recipes/space/space/stream"] .wall-entry .panel{
+    border-radius: 50%;
+    position: relative;
+    margin: 0;
+}
+
+body.user div[data-stream="/deepfrypan/s/recipes/space/space/stream"] .wall-entry .panel .panel-body{
+    overflow:hidden;
+    height:266px;
+    width: 266px;
+    box-shadow: 3px 3px 8px #dadada;
+    -webkit-box-shadow: 3px 3px 8px #dadada;
+    -moz-box-shadow: 3px 3px 8px #dadada;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+body.user div[data-stream="/deepfrypan/s/recipes/space/space/stream"] .wall-entry:hover .panel .panel-body{
+    overflow:visible;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    z-index:100;
+    opacity: 1;
+}
+
+body.user div[data-stream="/deepfrypan/s/recipes/space/space/stream"] .wall-entry .pie-chart {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background-color: #222222;
+    z-index: 10;
+    opacity: 1;
+}
+
+body.user div[data-stream="/deepfrypan/s/recipes/space/space/stream"] .wall-entry:hover .pie-chart {
+    opacity: 0;
+}
+
+body.user div[data-stream="/deepfrypan/s/recipes/space/space/stream"] .wall-entry:hover span.shareLinkContainer {
+    position: absolute;
+    top: 6px;
+    left: 100px;
+    background-color: #fff;
+    padding: 10px;
+    display:block;
+}
+
+body.user div[data-stream="/deepfrypan/s/recipes/space/space/stream"] .wall-entry span.shareLinkContainer,
+body.user div[data-stream="/deepfrypan/s/recipes/space/space/stream"] .wall-entry .media-body {
+    display:none;
+}
