@@ -11,23 +11,90 @@ namespace humhub\modules\custom\controllers;
 use Yii;
 use yii\helpers\Url;
 use humhub\components\Controller;
-use humhub\modules\qs\models\forms\GuestLogin;
-use humhub\modules\qs\models\forms\GuestRegister;
+use humhub\modules\space\models\Space;
 
-class GuestController extends Controller
+class RecipeController extends Controller
 {
-  public function actionRegister()
+  public function actionIndex()
   {
-    $request = Yii::$app->request;
-    $model = new GuestRegister;
-    $postId = $request->get('postId');
-    $contentId = $request->get('contentId');
-    $sguid = $request->get('sguid');
-    if ($model->load($request->post()) && $model->validate())
+    /*$words = explode(" ","1.	Fry onions in oil till it gets golden brown
+      2.	Add garlic n ginger paste and cook for 5 min
+      3.	Add chicken and cook till the chicken gets golden for around 15 min
+      4.	Add tomatoes, green chilies and garlic paste
+      5.	Add red chili powder, coriander powder  and turmeric
+      6.	Add all garam Masala like cloves, black pepper, cinnamon, green and black cardamom and bay leaves cook for 30 mins, add salt after it gets cook
+      7.	Soak rice in water for 15 min
+      8.	Now boil water with salt, and all garam masalas
+      9.	Stir rice in boiling and boil till the rice get half cook
+      10.	Stir rice and add masala
+      11.	Add masala to pot, then add dhania podina and jaifal javetri as garnish add rice, sprinkle food color and kewra on rice
+      12.	Dum pe rkh dien jb tk dum nikal na jae :D
+    ");*/
+    $words = [];
+    if(Yii::$app->request->post())
     {
-
+      $words = explode(" ",Yii::$app->request->post("instructions"));
     }
+    $results = [];
+    foreach ($words as $title)
+    {
+        $space = Space::find()->where(['like', 'name', trim($title).'%', false])->one();
+        if ($space !== null)
+        {
+          if($space->id == 1)
+          {
+            continue;
+          }
+          $tags = [];
+          if(!empty($space->tags))
+          {
+            $tags = str_replace(' ', '', $space->tags);
+            $tags = explode(",",$tags);
+          }
+          $results[$space->name] = ["tags"=>$tags,"guid"=>$space->guid];
+        }
+    }
+    return json_encode($results);
+  }
 
-    return $this->renderAjax('modals/register',['model'=>$model]);
+  public function actionSearch()
+  {
+    $keyword = "1.	Fry onions in oil till it gets golden brown
+                2.	Add garlic n ginger paste and cook for 5 min
+                3.	Add chicken and cook till the chicken gets golden for around 15 min
+                4.	Add tomatoes, green chilies and garlic paste
+                5.	Add red chili powder, coriander powder  and turmeric
+                6.	Add all garam Masala like cloves, black pepper, cinnamon, green and black cardamom and bay leaves cook for 30 mins, add salt after it gets cook
+                7.	Soak rice in water for 15 min
+                8.	Now boil water with salt, and all garam masalas
+                9.	Stir rice in boiling and boil till the rice get half cook
+                10.	Stir rice and add masala
+                11.	Add masala to pot, then add dhania podina and jaifal javetri as garnish add rice, sprinkle food color and kewra on rice
+                12.	Dum pe rkh dien jb tk dum nikal na jae :D
+                ";
+
+    $keyword = explode(" ",$keyword);
+    $results = [];
+    foreach ($keyword as $title)
+    {
+        $searchResultSet = Yii::$app->search->find($title, [
+            'model' => Space::class,
+            'page' => 1,
+            'pageSize' => 10
+        ]);
+
+        $spaces = $searchResultSet->getResultInstances();
+        foreach ($spaces as $space)
+        {
+          if($space->id == 1)
+          {
+            continue;
+          }
+          $results[$space->name] = ["id"=>$space->id, "tags" => $space->url];
+        }
+    }
+    echo "<pre>";
+    print_r (json_encode($results));
+    echo "</pre>";
   }
 }

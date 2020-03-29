@@ -21,98 +21,19 @@ use humhub\widgets\Button;
 /* @var $contentContainer \humhub\modules\content\components\ContentContainerActiveRecord */
 
 if($contentContainer->url == "recipes")
-{ ?>
+{
+  ?>
   <div class="panel panel-default clearfix">
       <div class="panel-body form-ingredient" id="contentFormBody">
-          <?= Html::beginForm($submitUrl, 'POST'); ?>
 
-          <div class="form-group required">
-            <label class="control-label" for="recipe-serving">Serving</label>
-            <input type="text" class="form-control" id="recipe-serving" name="recipe-serving" value="">
-            <p class="help-block help-block-error"></p>
-          </div>
+          <!-- ?= Html::beginForm($submitUrl, 'POST'); ? -->
 
-          <div class="form-group">
-            <h1>Ingredients</h1>
-            <hr>
+          <?= humhub\modules\custom\widgets\CreateRecipe::widget([
+              'contentContainer' => $contentContainer,
+          ]) ?>
 
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Ingredient">
-              <span class="input-group-addon">
-                <input type="number" class="form-control" value="0">
-              </span>
-              <div class="input-group-btn">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">kg <span class="caret"></span></button>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li><a href="#">kg</a></li>
-                  <li><a href="#">cup</a></li>
-                  <li><a href="#">table spoon</a></li>
-                  <li><a href="#">tea spoon</a></li>
-                  <li><a href="#">qty</a></li>
-                  <li><a href="#">liter</a></li>
-                  <li><a href="#">ounce</a></li>
-                  <li><a href="#">pinch / چوٹکی</a></li>
-                </ul>
-              </div>
-            </div>
-
-
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Ingredient">
-              <span class="input-group-addon">
-                <input type="number" class="form-control" value="0">
-              </span>
-              <div class="input-group-btn">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">kg <span class="caret"></span></button>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li><a href="#">kg</a></li>
-                  <li><a href="#">cup</a></li>
-                  <li><a href="#">table spoon</a></li>
-                  <li><a href="#">tea spoon</a></li>
-                  <li><a href="#">qty</a></li>
-                  <li><a href="#">liter</a></li>
-                  <li><a href="#">ounce</a></li>
-                  <li><a href="#">pinch / چوٹکی</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Ingredient">
-              <span class="input-group-addon">
-                <input type="number" class="form-control" value="0">
-              </span>
-              <div class="input-group-btn">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">kg <span class="caret"></span></button>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li><a href="#">kg</a></li>
-                  <li><a href="#">cup</a></li>
-                  <li><a href="#">table spoon</a></li>
-                  <li><a href="#">tea spoon</a></li>
-                  <li><a href="#">qty</a></li>
-                  <li><a href="#">liter</a></li>
-                  <li><a href="#">ounce</a></li>
-                  <li><a href="#">pinch / چوٹکی</a></li>
-                </ul>
-              </div>
-            </div>
-
-
-          </div>
-
-          <?= Html::hiddenInput("containerGuid", $contentContainer->guid); ?>
-          <?= Html::hiddenInput("containerClass", get_class($contentContainer)); ?>
-
-          <ul id="contentFormError"></ul>
-
-          <div class="contentForm_options">
-              <hr>
-              <div class="btn_container">
-                  <?= Button::info($submitButtonText)->action('submit')->id('post_submit_button')->submit() ?>
-              </div>
-          </div>
           <!-- /contentForm_Options -->
-          <?= Html::endForm(); ?>
+          <!-- ?= Html::endForm(); ? -->
       </div>
       <!-- /panel body -->
   </div> <!-- /panel -->

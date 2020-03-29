@@ -1,0 +1,18 @@
+.form-ingredient span.input-group-addon{
+    width: 100px;
+    padding: 0;
+}
+
+.form-ingredient span.input-group-addon input {
+    border-left: 0;
+    border-right: 0;
+}
+
+.carousel-heading h3 {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    font-weight: 1;
+}
+.carousel-heading small {
+    text-shadow:none;
+    color:yellowgreen;
+}
