@@ -97,4 +97,9 @@ class RecipeController extends Controller
     print_r (json_encode($results));
     echo "</pre>";
   }
+
+  public function actionCreate()
+  {
+    return $this->renderAjax('modals/create',[]);
+  }
 }

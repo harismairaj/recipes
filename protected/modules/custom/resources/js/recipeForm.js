@@ -1,174 +1,152 @@
+var recipeForm;
 humhub.module('recipeForm', function(module, require, $)
 {
-  var self = {
+  recipeForm = {
     props:{
-      ingredients:{}
+
     },
     init:function()
     {
-      self.props.t = $('#ingredientTable').DataTable();
-      self.carousel();
-      self.recipeServing();
-      self.createRecipe();
-      self.instructions();
+      console.log("init");
+      recipeForm.instructions.init();
+      recipeForm.ingredient.init();
     },
-    carousel:function()
-    {
-      $('#createRecipeCarousel').carousel({
-        wrap:false,
-        keyboard:false,
-        interval:false
-      });
-
-      $('nav .back-next .previous a').on("click",function()
-      {
-        self.back();
-      });
-      $('nav .back-next .next a').on("click",function()
-      {
-        self.next();
-      });
-    },
-    ingredient:function(data)
-    {
-      self.props.t.clear();
-      $.each(data,function(key, value)
-      {
-        var options = "";
-        $.each(value.tags,function(k, v)
-        {
-          options += "<option value='"+v+"'>"+v+"</option>";
+    ingredient:{
+      elm:null,
+      init:function(){
+        recipeForm.ingredient.elm = $('#ingredientTable').DataTable({
+          "paging": false,
+          "ordering": false,
+          "info": false,
+          "searching": false
         });
-        self.addRow(key,0,options);
-      });
-      $('#addIngredient').off();
-      $('#addIngredient').on('click',function()
-      {
-        self.addRow();
-      });
-
-      $('.remove-btn').off();
-      $('.remove-btn').on('click',function(event)
-      {
-        $(this).parent().parent().remove();
-
-        // var row = self.props.t.row($(this).parent().parent());
-        // var rowNode = row.node();
-        // row.remove();
-      });
-    },
-    addRow:function(title,qty,options)
-    {
-      title = title||"";
-      qty = qty||0;
-      options = options||"";
-      if(options == "")
-      {
-        options = "<option value='kg'>kg</option>"+
-        "<option value='cup'>cup</option>"+
-        "<option value='tablespoon'>table spoon</option>"+
-        "<option value='teaspoon'>tea spoon</option>"+
-        "<option value='quantity'>quantity</option>"+
-        "<option value='liter'>liter</option>"+
-        "<option value='ounce'>ounce</option>"+
-        "<option value='pinch'>pinch / چوٹکی</option>";
-      }
-      var row = [
-        '<button class="fa fa-minus remove-btn"></button><input type="text" class="form-control" placeholder="Ingredient" value="'+title+'" />',
-        '<input type="number" min="0" class="form-control" value="'+qty+'" />',
-        '<select class="form-control">'+options+'</select>'
-      ];
-      self.props.t.row.add(row).draw(false);
-      if(title != "")
-      {
-        self.props.ingredients[title] = row;
-      }
-    },
-    instructions:function()
-    {
-      var already = false;
-      $("#recipeInstructions")
-      .on("blur",function(event)
-      {
-        already = true;
-        inputInstruction($(this));
-      })
-      .on("keydown",function(event)
-      {
-        already = true;
-        if(event.keyCode == 13)
+        recipeForm.ingredient.setData([]);
+        $('#addIngredient').off();
+        $('#addIngredient').on('click',function()
         {
-          inputInstruction($(this));
+          recipeForm.ingredient.addRow();
+        });
+        recipeForm.ingredient.removeEvent();
+      },
+      addRow:function (title,qty,units)
+      {
+        title = title||"";
+        qty = qty||0;
+        units = units||"";
+        if(units == "")
+        {
+          units = "<option value='kg'>kg</option>"+
+          "<option value='cup'>cup</option>"+
+          "<option value='tablespoon'>table spoon</option>"+
+          "<option value='teaspoon'>tea spoon</option>"+
+          "<option value='quantity'>quantity</option>"+
+          "<option value='liter'>liter</option>"+
+          "<option value='ounce'>ounce</option>"+
+          "<option value='pinch'>pinch / چوٹکی</option>";
         }
-      });
-
-      function inputInstruction(trg)
-      {
-        if(already && trg.val() != "")
+        var row = [
+          '<button class="fa fa-minus remove-btn"></button><input type="text" class="form-control" placeholder="Ingredient" value="'+title+'" />',
+          '<input type="number" min="0" class="form-control" value="'+qty+'" />',
+          '<select class="form-control">'+units+'</select>'
+        ];
+        recipeForm.ingredient.elm.row.add(row).draw(false);
+        if(title == "")
         {
-          $.ajax({
-            url:window.location.origin+"/deepfrypan/custom/recipe/",
-            data:{
-              instructions:trg.val()
-            },
-            dataType:"json",
-            type:"POST",
-            success:function(data)
-            {
-              self.ingredient(data);
-              self.next();
-            }
+          recipeForm.ingredient.removeEvent();
+        }
+      },
+      removeEvent:function()
+      {
+        $('#ingredientTable .remove-btn').off();
+        $('#ingredientTable .remove-btn').on('click',function(event)
+        {
+          $(this).parent().parent().remove();
+          var row = recipeForm.ingredient.elm.row($(this).parent().parent());
+          var rowNode = row.node();
+          row.remove();
+        });
+      },
+      setData:function(data)
+      {
+        recipeForm.ingredient.elm.clear();
+        $.each(data,function(key, value)
+        {
+          var units = "";
+          $.each(value.tags,function(k, v)
+          {
+            units += "<option value='"+v+"'>"+v+"</option>";
           });
-        }
-        already = false;
+          recipeForm.ingredient.addRow(key,0,units);
+        });
       }
     },
-    recipeServing:function()
-    {
-      var already = false;
-      $("#recipeServing")
-      .on('blur', function (event)
-      {
-        inputServing($(this));
-      })
-      .on('keydown', function (event)
-      {
-        if(event.keyCode == 13)
+    instructions:{
+      elm:null,
+      init:function(){
+        recipeForm.instructions.elm = $('#instructionsTable').DataTable({
+          "paging": false,
+          "ordering": false,
+          "info": false,
+          "searching": false
+        });
+        recipeForm.instructions.setData([]);
+        $('#addInstructions').off();
+        $('#addInstructions').on('click',function()
         {
-          inputServing($(this));
-        }
-      });
-      function inputServing(trg)
+          recipeForm.instructions.addRow();
+        });
+        recipeForm.instructions.removeEvent();
+      },
+      addRow:function (text,from,to)
       {
-        if(trg.val() != 0)
+        text = text||"";
+        to = to||0;
+        from = from||0;
+        var row = [
+          '<button class="fa fa-minus remove-btn"></button><input type="text" class="form-control" placeholder="Instruction" value="'+text+'" />',
+          '<input type="number" min="0" class="form-control" value="'+from+'" />',
+          '<input type="number" min="0" class="form-control" value="'+to+'" />'
+        ];
+        recipeForm.instructions.elm.row.add(row).draw(false);
+        if(text == "")
         {
-          console.log("inputServing");
-          self.next();
-          $("#recipeInstructions").focus();
+          recipeForm.instructions.removeEvent();
         }
-      }
-    },
-    createRecipe:function()
-    {
-      $("#createRecipeBtn")
-      .on('click', function ()
+      },
+      removeEvent:function()
       {
-        createRecipe();
-      })
-      .on('keydown', function (event)
-      {
-        if(event.keyCode == 13)
+        $('#instructionsTable .remove-btn').off();
+        $('#instructionsTable .remove-btn').on('click',function(event)
         {
-          createRecipe();
-        }
-      });
-
-      function createRecipe()
+          $(this).parent().parent().remove();
+          var row = recipeForm.instructions.elm.row($(this).parent().parent());
+          var rowNode = row.node();
+          row.remove();
+        });
+      },
+      setData:function(data)
       {
-        console.log("createRecipe");
-        $("#createRecipeBtn").hide();
-        $("#createRecipeCarousel").show();
-        $("#recipeServing").focus();
+        // var trg = $("#recipeInstructions");
+        // if(trg.val() != "")
+        // {
+        //   $.ajax({
+        //     url:window.location.origin+"/deepfrypan/custom/recipe/",
+        //     data:{
+        //       instructions:trg.val()
+        //     },
+        //     dataType:"json",
+        //     type:"POST",
+        //     success:function(data)
+        //     {
+        //       recipeForm.ingredient(data);
+        //     }
+        //   });
+        // }
+        recipeForm.instructions.elm.clear();
+        $.each(data,function(key, value)
+        {
+          recipeForm.instructions.addRow(key,0,0);
+        });
       }
     },
     auto:function()
@@ -247,17 +225,6 @@ humhub.module('recipeForm', function(module, require, $)
           return false;
         }
       });
-    },
-    next:function()
-    {
-      $('#createRecipeCarousel').carousel('next');
-      $('#createRecipeCarousel').carousel('pause');
-    },
-    back:function()
-    {
-      $('#createRecipeCarousel').carousel('prev');
-      $('#createRecipeCarousel').carousel('next');
     }
   };
-  self.init();
 });

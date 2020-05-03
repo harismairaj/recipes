@@ -11,6 +11,7 @@ use humhub\modules\file\widgets\FileHandlerButtonDropdown;
 use humhub\modules\file\widgets\UploadProgress;
 use humhub\widgets\Link;
 use humhub\widgets\Button;
+use yii\helpers\Url;
 
 /* @var $defaultVisibility integer */
 /* @var $submitUrl string */
@@ -22,15 +23,14 @@ use humhub\widgets\Button;
 
 if($contentContainer->url == "recipes")
 {
+
   ?>
   <div class="panel panel-default clearfix">
       <div class="panel-body form-ingredient" id="contentFormBody">
 
           <!-- ?= Html::beginForm($submitUrl, 'POST'); ? -->
 
-          <?= humhub\modules\custom\widgets\CreateRecipe::widget([
-              'contentContainer' => $contentContainer,
-          ]) ?>
+          <a href="#" data-action-click="ui.modal.load" data-action-url="<?= Url::toRoute('/custom/recipe/create/'); ?>">Create Recipe</a>
 
           <!-- /contentForm_Options -->
           <!-- ?= Html::endForm(); ? -->
