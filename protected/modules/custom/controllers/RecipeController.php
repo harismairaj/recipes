@@ -10,10 +10,12 @@ namespace humhub\modules\custom\controllers;
 
 use Yii;
 use yii\helpers\Url;
-use humhub\components\Controller;
+use humhub\modules\custom\components\ContentContainerController;
 use humhub\modules\space\models\Space;
+use humhub\modules\custom\models\Recipe;
+use humhub\modules\post\models\Post;
 
-class RecipeController extends Controller
+class RecipeController extends ContentContainerController
 {
   public function actionIndex()
   {
@@ -100,6 +102,123 @@ class RecipeController extends Controller
 
   public function actionCreate()
   {
-    return $this->renderAjax('modals/create',[]);
+    $request = Yii::$app->request->post();
+    $userId = Yii::$app->user->id;
+    $postData = [];
+    foreach($request as $key=>$data)
+    {
+      $postData[$key] = $request[$key];
+    }
+
+    if(empty($postData["message"]))
+    {
+      return "error";
+    }
+
+    $post = new Post();
+    $post->message = $postData['message'];
+    $post->created_by = $userId;
+    $post->updated_by = $userId;
+    $post->content->created_by = $userId;
+    $post->content->updated_by = $userId;
+    $post->content->visibility = 1;
+    $post->content->contentcontainer_id = (int) $postData['contentcontainer_id'];
+    if($post->save())
+    {
+      // C:\wamp3\www\deepfrypan\protected\humhub\modules\content\widgets\WallCreateContentForm.php line 142
+      $topics = [7];//Yii::$app->request->post('postTopicInput');
+      if(!empty($topics))
+      {
+        \humhub\modules\topic\models\Topic::attach($post->content, $topics);
+      }
+      $this->createLinkedItem($request,$post->id,$userId);
+      return true;
+    }
+    else
+    {
+      return "error";
+    }
+  }
+
+  private function createLinkedItem($request,$objectId,$userId)
+  {
+    foreach($request as $k=>$item)
+    {
+      if($k == "serve" || $k == "prepTime" || $k == "cookTime" || $k == "instruction" || $k == "ingredient")
+      {
+        if(is_array($request[$k]))
+        {
+          foreach($request[$k] as $l=>$i)
+          {
+            $this->linkedItem($k,$request[$k][$l],$objectId,$userId);
+          }
+        }
+        else
+        {
+          $this->linkedItem($k,$request[$k],$objectId,$userId);
+        }
+      }
+    }
+  }
+
+  private function linkedItem($key,$message,$object_id,$userId)
+  {
+    $serve = new Recipe();
+    $serve->message = $message;
+    $serve->object_id = $object_id;
+    $serve->created_by = $userId;
+    $serve->updated_by = $userId;
+    $serve->object_model = $key;
+    $serve->save();
+  }
+
+  public function actionEdit()
+  {
+    $request = Yii::$app->request->post();
+    $userId = Yii::$app->user->id;
+    $postData = [];
+    foreach($request as $key=>$data)
+    {
+      $postData[$key] = $request[$key];
+    }
+
+    // return json_encode($postData);
+    if(empty($postData["message"]))
+    {
+      return "error";
+    }
+
+    // $model = Post::findOne(['id' => $id]);
+    //
+    // if (!$model->content->canEdit()) {
+    //     $this->forbidden();
+    // }
+    //
+    // if ($model->load(Yii::$app->request->post())) {
+    //     // Reload record to get populated updated_at field
+    //     if ($model->validate() && $model->save()) {
+    //         $model = Post::findOne(['id' => $id]);
+    //         return $this->renderAjaxContent($model->getWallOut());
+    //     } else {
+    //         Yii::$app->response->statusCode = 400;
+    //     }
+    // }
+
+    $post = Post::findOne(['id' => $postData['object_id']]);
+    $post->message = $postData["message"];
+    $post->content->visibility = 1;
+    $post->save();
+
+    $details = Recipe::deleteAll(['AND',
+            ['!=', 'object_model', 'humhub\modules\post\models\Post'],
+            ['object_id' => $postData['object_id']]
+          ]);
+    $this->createLinkedItem($request,$postData['object_id'],$userId);
+    return 1;
+  }
+
+  public function actionDelete()
+  {
+
   }
 }

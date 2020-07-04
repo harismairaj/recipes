@@ -1,6 +1,32 @@
 Changelog
 =========
 
+2.1.7  (April 22, 2020)
+--------------------------
+- Fix: 1.3 compatibility support 
+
+
+2.1.6  (April 21, 2020)
+--------------------------
+- Fix: Missing import in start view (@ArchBlood)
+ 
+ 
+2.1.5  (April 21, 2020)
+--------------------------
+- Enh: Added cleanup backup job
+ 
+
+2.1.4  (April 16, 2020)
+--------------------------
+- Fix: Self updater update check broken
+ 
+
+2.1.3  (April 14, 2020)
+--------------------------
+- Enh: Allow complete humhub directory replace
+- Enh: Updated translation
+
+
 2.1.2  (December 11, 2019)
 --------------------------
 - Enh: Improved HumHub 1.4+ compatibility

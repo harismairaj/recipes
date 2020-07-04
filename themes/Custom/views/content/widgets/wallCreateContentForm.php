@@ -21,40 +21,23 @@ use yii\helpers\Url;
 /* @var $canSwitchVisibility boolean */
 /* @var $contentContainer \humhub\modules\content\components\ContentContainerActiveRecord */
 
-if($contentContainer->url == "recipes")
-{
+ContentFormAsset::register($this);
+$this->registerJsConfig('content.form', [
+    'defaultVisibility' => $defaultVisibility,
+    'disabled' => ($contentContainer instanceof Space && $contentContainer->isArchived()),
+    'text' => [
+        'makePrivate' => Yii::t('ContentModule.widgets_views_contentForm', 'Make private'),
+        'makePublic' => Yii::t('ContentModule.widgets_views_contentForm', 'Make public'),
+        'info.archived' => Yii::t('ContentModule.widgets_views_contentForm', 'This space is archived.')
+]]);
 
-  ?>
-  <div class="panel panel-default clearfix">
-      <div class="panel-body form-ingredient" id="contentFormBody">
-
-          <!-- ?= Html::beginForm($submitUrl, 'POST'); ? -->
-
-          <a href="#" data-action-click="ui.modal.load" data-action-url="<?= Url::toRoute('/custom/recipe/create/'); ?>">Create Recipe</a>
-
-          <!-- /contentForm_Options -->
-          <!-- ?= Html::endForm(); ? -->
-      </div>
-      <!-- /panel body -->
-  </div> <!-- /panel -->
-<?php
-}
-else
-{
-  ContentFormAsset::register($this);
-
-  $this->registerJsConfig('content.form', [
-      'defaultVisibility' => $defaultVisibility,
-      'disabled' => ($contentContainer instanceof Space && $contentContainer->isArchived()),
-      'text' => [
-          'makePrivate' => Yii::t('ContentModule.widgets_views_contentForm', 'Make private'),
-          'makePublic' => Yii::t('ContentModule.widgets_views_contentForm', 'Make public'),
-          'info.archived' => Yii::t('ContentModule.widgets_views_contentForm', 'This space is archived.')
-  ]]);
-
-  $pickerUrl = ($contentContainer instanceof Space) ? $contentContainer->createUrl('/space/membership/search') : null;
+$pickerUrl = ($contentContainer instanceof Space) ? $contentContainer->createUrl('/space/membership/search') : null;
 ?>
-
+<div class="panel panel-default clearfix">
+    <div class="panel-body form-ingredient">
+        <a href="#" data-action-click="ui.modal.load" data-action-url="<?= Url::toRoute('/custom/modals/create/'.$contentContainer->contentcontainer_id) ?>">Create Recipe</a>
+    </div>
+</div>
 <div class="panel panel-default clearfix">
     <div class="panel-body" id="contentFormBody" style="display:none;" data-action-component="content.form.CreateForm" >
         <?= Html::beginForm($submitUrl, 'POST'); ?>
@@ -141,7 +124,3 @@ else
     </div>
     <!-- /panel body -->
 </div> <!-- /panel -->
-
-<?php
-}
-?>

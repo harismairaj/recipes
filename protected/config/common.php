@@ -21,6 +21,8 @@ return [
 									'collapseSlashes' => true
 								]
 							]*/
+							'custom/modals/create/<contentcontainer_id:\d+>' => 'custom/modals/create',
+							'custom/modals/edit/<object_id:\d+>' => 'custom/modals/edit',
 						]
         ]
     ],

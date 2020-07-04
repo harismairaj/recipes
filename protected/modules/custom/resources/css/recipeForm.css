@@ -1,8 +1,8 @@
 input[type=number].form-control {
-    padding: 0 5px;
+  padding: 0 5px;
 }
 
-.recipe-table .remove-btn {
+.custom-table .remove-btn {
   border-radius: 50px;
   background-color: #ff0000;
   color: #fff;
@@ -17,10 +17,28 @@ input[type=number].form-control {
   top: 12px;
 }
 
-.recipe-table th{
-
+.dataTables_empty {
+  display: none;
 }
-.recipe-table td {
-    padding: 1px 1px !important;
-    position:relative;
+
+.custom-table table.dataTable th {
+  padding: 0;
+  font-weight: 400;
+  color: #000;
+  text-align: right;
+}
+
+.custom-table table.dataTable td {
+  padding: 1px 1px;
+  position: relative;
+}
+
+.image-wrapper,
+.video-wrapper,
+.custom-table {
+  margin-bottom: 15px;
+}
+
+.hashTag{
+  height: auto;
 }

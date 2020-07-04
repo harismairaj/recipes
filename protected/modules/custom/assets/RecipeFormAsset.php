@@ -16,7 +16,7 @@ class RecipeFormAsset extends AssetBundle
 
     public $depends = [
         'humhub\assets\AtJsAsset',
-        'humhub\modules\custom\assets\textAreaHelperAsset',
+        //'humhub\modules\custom\assets\textAreaHelperAsset',
         'humhub\modules\custom\assets\DataTableAsset'
     ];
 }

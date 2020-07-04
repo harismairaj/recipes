@@ -2,31 +2,31 @@ var recipeForm;
 humhub.module('recipeForm', function(module, require, $)
 {
   recipeForm = {
-    props:{
-
-    },
-    init:function()
+    init:function(data)
     {
-      console.log("init");
-      recipeForm.instructions.init();
-      recipeForm.ingredient.init();
+      recipeForm.instructions.init(data.instruction);
+      recipeForm.ingredient.init(data.ingredient);
     },
     ingredient:{
       elm:null,
-      init:function(){
+      init:function(data)
+      {
         recipeForm.ingredient.elm = $('#ingredientTable').DataTable({
           "paging": false,
           "ordering": false,
           "info": false,
           "searching": false
         });
-        recipeForm.ingredient.setData([]);
+        // recipeForm.ingredient.setData([]);
         $('#addIngredient').off();
         $('#addIngredient').on('click',function()
         {
           recipeForm.ingredient.addRow();
         });
-        recipeForm.ingredient.removeEvent();
+        $.each(data,function(i,obj)
+        {
+          recipeForm.ingredient.addRow(obj.text);
+        });
       },
       addRow:function (title,qty,units)
       {
@@ -45,15 +45,12 @@ humhub.module('recipeForm', function(module, require, $)
           "<option value='pinch'>pinch / چوٹکی</option>";
         }
         var row = [
-          '<button class="fa fa-minus remove-btn"></button><input type="text" class="form-control" placeholder="Ingredient" value="'+title+'" />',
-          '<input type="number" min="0" class="form-control" value="'+qty+'" />',
-          '<select class="form-control">'+units+'</select>'
+          '<button class="fa fa-minus remove-btn"></button><input type="text" name="ingredient[]" class="form-control" placeholder="Ingredient" value="'+title+'" />',
+          '<input type="number" min="0" name="qty[]" class="form-control" value="'+qty+'" />',
+          '<select name="unit[]" class="form-control">'+units+'</select>'
         ];
         recipeForm.ingredient.elm.row.add(row).draw(false);
-        if(title == "")
-        {
-          recipeForm.ingredient.removeEvent();
-        }
+        recipeForm.ingredient.removeEvent();
       },
       removeEvent:function()
       {
@@ -81,21 +78,27 @@ humhub.module('recipeForm', function(module, require, $)
       }
     },
     instructions:{
+      tags:{},
       elm:null,
-      init:function(){
+      init:function(data)
+      {
         recipeForm.instructions.elm = $('#instructionsTable').DataTable({
           "paging": false,
           "ordering": false,
           "info": false,
           "searching": false
         });
-        recipeForm.instructions.setData([]);
+        // recipeForm.instructions.setData([]);
         $('#addInstructions').off();
         $('#addInstructions').on('click',function()
         {
           recipeForm.instructions.addRow();
         });
         recipeForm.instructions.removeEvent();
+        $.each(data,function(i,obj)
+        {
+          recipeForm.instructions.addRow(obj.text);
+        });
       },
       addRow:function (text,from,to)
       {
@@ -103,15 +106,56 @@ humhub.module('recipeForm', function(module, require, $)
         to = to||0;
         from = from||0;
         var row = [
-          '<button class="fa fa-minus remove-btn"></button><input type="text" class="form-control" placeholder="Instruction" value="'+text+'" />',
-          '<input type="number" min="0" class="form-control" value="'+from+'" />',
-          '<input type="number" min="0" class="form-control" value="'+to+'" />'
+          // '<button class="fa fa-minus remove-btn"></button><div class="inputor hashTag form-control" contentEditable="true">'+text+'</div>',
+          '<button class="fa fa-minus remove-btn"></button><input type="text" name="instruction[]" class="form-control" placeholder="Instruction" value="'+text+'" />',
+          '<input type="number" name="from[]" min="0" class="form-control" value="'+from+'" />',
+          '<input type="number" name="to[]" min="0" class="form-control" value="'+to+'" />'
         ];
         recipeForm.instructions.elm.row.add(row).draw(false);
-        if(text == "")
-        {
-          recipeForm.instructions.removeEvent();
-        }
+        recipeForm.instructions.removeEvent();
+        // recipeForm.instructions.applyHashTag();
+      },
+      applyHashTag:function()
+      {
+        $('.hashTag').atwho({
+          at: "#",
+          // data: recipeForm.instructions.tags,
+          limit: 200,
+          // headerTpl: "<small>Select ingredient</small>",
+          // displayTpl: "<li><img src='/deepfrypan/uploads/profile_image/${name}.jpg' height='20' width='20'/> ${name} </li>",
+          // insertTpl: "<a href='#'>${name}</a>",
+          callbacks: {
+            // beforeInsert: function(value, $li)
+            // {
+            //   var v = value.slice(1);
+            //   if(typeof recipeForm.instructions.tags[v] == "undefined" && v != "")
+            //   {
+            //     recipeForm.ingredient.addRow(v);
+            //   }
+            //   return value;
+            // },
+            afterMatchFailed: function(at, el)
+            {
+              if(at=='#')
+              {
+                var t = el.text().trim().slice(1);
+                if(typeof recipeForm.instructions.tags[t] == "undefined"
+                 && t != "")
+                {
+                  recipeForm.instructions.tags[t] = t;
+                  // var arr = $.map(recipeForm.instructions.tags, function(value, i)
+                  // {
+                  //   return {'id':i,'name':value};
+                  // });
+                  // this.model.save(arr);
+                  recipeForm.ingredient.addRow(t);
+                  // this.insert("#"+t,$("<li class='cur'>"+t+"</li>"));
+                }
+                return true;
+              }
+            }
+          }
+        });
       },
       removeEvent:function()
       {
@@ -149,80 +193,33 @@ humhub.module('recipeForm', function(module, require, $)
         });
       }
     },
-    auto:function()
+    create:function()
     {
-      var categoryTags = ["rice", "cup", "pani", "water", "egg", "tomato", "potato", "onion", "banaspati rice", "sela rice","Carrot","salt","sugar","Dal Masor", "Malka Dal", "Chicken", "Beef", "Fish", "canola", "sunflower", "vegetable oil","red chili powder","turmeric powder","baking powder", "gram", "table spoon", "tea spoon"];
-
-      tagState = categoryTags;
-
-      function split(val)
-      {
-        return val.split( / \s*/ );
-      }
-
-      function extractLast(term)
-      {
-        return split(term).pop();
-      }
-
-      $("#recipeInstructions")
-      .on( "keydown", function( event )
-      {
-        if ( (event.keyCode === $.ui.keyCode.TAB) &&
-          $( this ).autocomplete( "instance" ).menu.active )
+      $.ajax({
+        url:window.location.origin+"/deepfrypan/custom/recipe/create",
+        data:$("#recipeModalForm").serializeArray(),
+        dataType:"json",
+        showLoader:true,
+        type:"POST",
+        success:function(data)
         {
-          event.preventDefault();
-          return;
+          $("#globalModal").modal('hide');
+          window.location.reload();
         }
-        else if(event.keyCode === $.ui.keyCode.SPACE)
+      });
+    },
+    edit:function()
+    {
+      $.ajax({
+        url:window.location.origin+"/deepfrypan/custom/recipe/edit",
+        data:$("#recipeModalForm").serializeArray(),
+        dataType:"json",
+        showLoader:true,
+        type:"POST",
+        success:function(data)
         {
-          console.log(1);
-        }
-
-        // Code to position and move the selection box as the user types
-        var newY = $(this).textareaHelper('caretPos').top + (parseInt($(this).css('font-size'), 10) * 1.5);
-        var newX = $(this).textareaHelper('caretPos').left;
-        var posString = "left+" + newX + "px top+" + newY + "px";
-        $(this).autocomplete("option", "position", {
-          my : "left top",
-          at : posString
-        });
-      })
-      .autocomplete({
-        minLength:2,
-        autoFocus:true,
-        close: function( event, ui )
-        {
-          //console.log(1);
-        },
-        source:function(request, response)
-        {
-          lastEntry = extractLast(request.term);
-          if(lastEntry.length < 2)
-          {
-            return;
-          }
-          var filteredArray = $.map(tagState, function(item)
-          {
-            return item;
-          });
-          response($.ui.autocomplete.filter(filteredArray, lastEntry));
-        },
-        focus:function()
-        {
-          return false;
-        },
-        select:function(event, ui)
-        {
-          var terms = split(this.value);
-          terms.pop();
-          terms.push("("+ui.item.value+")");
-          terms.push("");
-          this.value = terms.join(" ");
-
-          $("#ingredients").append("<li>"+ui.item.value+"</li>");
-
-          return false;
+          $("#globalModal").modal('hide');
+          window.location.reload();
         }
       });
     }
