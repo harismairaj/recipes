@@ -10,10 +10,12 @@ namespace humhub\modules\custom\controllers;
 
 use Yii;
 use yii\helpers\Url;
+use yii\web\HttpException;
 use humhub\modules\custom\components\ContentContainerController;
 use humhub\modules\space\models\Space;
 use humhub\modules\custom\models\Recipe;
 use humhub\modules\post\models\Post;
+use humhub\modules\content\models\Content;
 
 class RecipeController extends ContentContainerController
 {
@@ -219,6 +221,32 @@ class RecipeController extends ContentContainerController
 
   public function actionDelete()
   {
+    $request = Yii::$app->request->post();
+    // return json_encode($request);
+    $contentObj = Content::findOne(['id' => $request['content_id']]);
 
+    if (!$contentObj) {
+        throw new HttpException(404);
+    }
+
+    if (!$contentObj->canEdit()) {
+        throw new HttpException(400, Yii::t('ContentModule.controllers_ContentController', 'Could not delete content: Access denied!'));
+    }
+
+    if ($contentObj !== null && $contentObj->delete()) {
+        Recipe::deleteAll(['AND',
+          ['!=', 'object_model', 'humhub\modules\post\models\Post'],
+          ['object_id' => $request['object_id']]
+        ]);
+        $json = [
+            'success' => true,
+            'uniqueId' => $contentObj->getUniqueId(),
+            'pk' => $request['content_id']
+        ];
+    } else {
+        throw new HttpException(500, Yii::t('ContentModule.controllers_ContentController', 'Could not delete content!'));
+    }
+
+    return json_encode($json);
   }
 }

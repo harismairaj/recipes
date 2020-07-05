@@ -50,4 +50,12 @@ class ModalsController extends Controller
 
     return $this->renderAjax('recipeForm',$formArr);
   }
+
+  public function actionDelete($content_id,$object_id)
+  {
+    return $this->renderAjax('deleteConfirmation',[
+      "content_id"=>$content_id,
+      "object_id"=>$object_id
+    ]);
+  }
 }

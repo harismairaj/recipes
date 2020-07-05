@@ -41,6 +41,9 @@ foreach ($object->getLabels() as $label)
                 <li>
                   <a href="#" data-action-click="ui.modal.load" data-action-url="<?= Url::toRoute('/custom/modals/edit/'.$object->content->object_id) ?>">Edit</a>
                 </li>
+                <li>
+                  <a href="#" data-action-click="ui.modal.load" data-action-url="<?= Url::toRoute('/custom/modals/delete/'.$object->content->id.'/'.$object->content->object_id) ?>">Delete</a>
+                </li>
               </ul>
             <?php //}else{ ?>
 
