@@ -3,6 +3,56 @@ body.user{
   padding-top: 80px;
 }
 
+/*** Youtube ***/
+.youtube-iframe {
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: block;
+    height: 240px;
+    margin: auto;
+}
+
+.youtube-iframe .play-button {
+    cursor: pointer;
+    width: 90px;
+    height: 60px;
+    background-color: #333;
+    box-shadow: 0 0 30px rgba(0,0,0,.6);
+    z-index: 1;
+    opacity: .9;
+    border-radius: 6px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0);
+}
+
+.youtube-iframe .play-button:before {
+    content: "";
+    border-style: solid;
+    border-width: 15px 0 15px 26px;
+    border-color: transparent transparent transparent #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%,-50%,0);
+}
+
+.youtube-iframe .img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .8;
+}
+
 /*** Search Box ***/
 .cntr .cntr-innr .search {
 	display: inline-block;

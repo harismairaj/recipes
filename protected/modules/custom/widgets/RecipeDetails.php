@@ -24,13 +24,24 @@ class RecipeDetails extends \yii\base\Widget
         ->orderBy("id ASC")
         ->all();
 
+        $managedArr = [];
         foreach ($details as $detail)
         {
-          echo $detail['object_model'].' -- '.$detail['message'].'</br>';
+          switch ($detail['object_model'])
+          {
+            case 'ingredient':
+            case 'instruction':
+              $managedArr[$detail['object_model']][] = $detail['message'];
+              break;
+            default:
+              $managedArr[$detail['object_model']] = $detail['message'];
+              break;
+          }
         }
 
         return $this->render('recipeDetails', [
-            'object' => $this->object_id,
+            'id' => $this->object_id,
+            'details' => $managedArr
         ]);
     }
 

@@ -106,25 +106,19 @@ class RecipeController extends ContentContainerController
   {
     $request = Yii::$app->request->post();
     $userId = Yii::$app->user->id;
-    $postData = [];
-    foreach($request as $key=>$data)
-    {
-      $postData[$key] = $request[$key];
-    }
-
-    if(empty($postData["message"]))
+    if(empty($request["message"]))
     {
       return "error";
     }
 
     $post = new Post();
-    $post->message = $postData['message'];
+    $post->message = $request['message'];
     $post->created_by = $userId;
     $post->updated_by = $userId;
     $post->content->created_by = $userId;
     $post->content->updated_by = $userId;
     $post->content->visibility = 1;
-    $post->content->contentcontainer_id = (int) $postData['contentcontainer_id'];
+    $post->content->contentcontainer_id = (int) $request['contentcontainer_id'];
     if($post->save())
     {
       // C:\wamp3\www\deepfrypan\protected\humhub\modules\content\widgets\WallCreateContentForm.php line 142
@@ -146,7 +140,7 @@ class RecipeController extends ContentContainerController
   {
     foreach($request as $k=>$item)
     {
-      if($k == "serve" || $k == "prepTime" || $k == "cookTime" || $k == "instruction" || $k == "ingredient")
+      if($k == "serve" || $k == "prepTime" || $k == "cookTime" || $k == "instruction" || $k == "ingredient" || $k == "embededVideo")
       {
         if(is_array($request[$k]))
         {
@@ -178,14 +172,7 @@ class RecipeController extends ContentContainerController
   {
     $request = Yii::$app->request->post();
     $userId = Yii::$app->user->id;
-    $postData = [];
-    foreach($request as $key=>$data)
-    {
-      $postData[$key] = $request[$key];
-    }
-
-    // return json_encode($postData);
-    if(empty($postData["message"]))
+    if(empty($request["message"]))
     {
       return "error";
     }
@@ -206,17 +193,17 @@ class RecipeController extends ContentContainerController
     //     }
     // }
 
-    $post = Post::findOne(['id' => $postData['object_id']]);
-    $post->message = $postData["message"];
+    $post = Post::findOne(['id' => $request['object_id']]);
+    $post->message = $request["message"];
     $post->content->visibility = 1;
     $post->save();
 
     $details = Recipe::deleteAll(['AND',
             ['!=', 'object_model', 'humhub\modules\post\models\Post'],
-            ['object_id' => $postData['object_id']]
+            ['object_id' => $request['object_id']]
           ]);
-    $this->createLinkedItem($request,$postData['object_id'],$userId);
-    return 1;
+    $this->createLinkedItem($request,$request['object_id'],$userId);
+    return true;
   }
 
   public function actionDelete()

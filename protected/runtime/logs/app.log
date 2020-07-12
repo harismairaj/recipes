@@ -10683,3 +10683,569 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1593883617.387
     'REQUEST_TIME' => 1593883617
 ]
+2020-07-05 16:26:18 [::1][1][gqfb0uqmh6pijklfhn4t7kcefo][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: model in C:\wamp3\www\deepfrypan\protected\modules\custom\controllers\RecipeController.php:244
+Stack trace:
+#0 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#1 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#2 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Module.php(528): humhub\modules\custom\controllers\RecipeController->runAction()
+#3 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\web\Application.php(103): humhub\components\Application->runAction()
+#4 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Application.php(386): humhub\components\Application->handleRequest()
+#5 C:\wamp3\www\deepfrypan\index.php(25): humhub\components\Application->run()
+#6 {main}
+2020-07-05 16:26:18 [::1][1][gqfb0uqmh6pijklfhn4t7kcefo][info][application] $_GET = []
+
+$_SERVER = [
+    'REDIRECT_BASE' => '/deepfrypan'
+    'REDIRECT_STATUS' => '200'
+    'BASE' => '/deepfrypan'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '28'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => 'nwSLWi750PuN1ctvx74r62c948MR5FvVThYYp6cBafvZKcUQW7SWluv4mgiJ9Gq9UxCVqlWnKIYtYTXE6HUvjg=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded; charset=UTF-8'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'cors'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_REFERER' => 'http://localhost/deepfrypan/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_identity=ec2b6bf73256254dff2fd9f8f09c05f7b4f80c4a7363522a9bfe4570f09d8397a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A50%3A%22%5B1%2C%22096e2c7e-55f4-4653-8b7a-e22950b0499d%22%2C2592000%5D%22%3B%7D; PHPSESSID=gqfb0uqmh6pijklfhn4t7kcefo; _csrf=32dcc949145c59a639dd80fb7298e534f5e09c80501bdd85f252ba6e40280afca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22F-NJuMFmf-QgNJAV4-viDCsScw-cOtFu%22%3B%7D'
+    'HTTP_DNT' => '1'
+    'PATH' => 'C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files\\Git\\cmd;C:\\wamp3\\bin\\php\\php7.3.12;C:\\Program Files\\TortoiseGit\\bin;C:\\composer;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.41 (Win64) PHP/7.3.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.41 (Win64) PHP/7.3.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp3/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp3/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp3/www/deepfrypan/index.php'
+    'REMOTE_PORT' => '52182'
+    'REDIRECT_URL' => '/deepfrypan/custom/recipe/delete'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/deepfrypan/custom/recipe/delete'
+    'SCRIPT_NAME' => '/deepfrypan/index.php'
+    'PHP_SELF' => '/deepfrypan/index.php'
+    'REQUEST_TIME_FLOAT' => 1593948378.395
+    'REQUEST_TIME' => 1593948378
+]
+2020-07-05 16:27:26 [::1][1][gqfb0uqmh6pijklfhn4t7kcefo][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: id in C:\wamp3\www\deepfrypan\protected\modules\custom\controllers\RecipeController.php:244
+Stack trace:
+#0 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#1 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#2 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Module.php(528): humhub\modules\custom\controllers\RecipeController->runAction()
+#3 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\web\Application.php(103): humhub\components\Application->runAction()
+#4 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Application.php(386): humhub\components\Application->handleRequest()
+#5 C:\wamp3\www\deepfrypan\index.php(25): humhub\components\Application->run()
+#6 {main}
+2020-07-05 16:27:26 [::1][1][gqfb0uqmh6pijklfhn4t7kcefo][info][application] $_GET = []
+
+$_SERVER = [
+    'REDIRECT_BASE' => '/deepfrypan'
+    'REDIRECT_STATUS' => '200'
+    'BASE' => '/deepfrypan'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '28'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => 'Febre1mRDxvso87N33pQwrRoOPuCJr9EG_v6pvbzFntTy6UxLNxJdoqOn6qRMBGUgEVOksZlzBd4jNfFuYdQDg=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded; charset=UTF-8'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'cors'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_REFERER' => 'http://localhost/deepfrypan/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_identity=ec2b6bf73256254dff2fd9f8f09c05f7b4f80c4a7363522a9bfe4570f09d8397a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A50%3A%22%5B1%2C%22096e2c7e-55f4-4653-8b7a-e22950b0499d%22%2C2592000%5D%22%3B%7D; PHPSESSID=gqfb0uqmh6pijklfhn4t7kcefo; _csrf=32dcc949145c59a639dd80fb7298e534f5e09c80501bdd85f252ba6e40280afca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22F-NJuMFmf-QgNJAV4-viDCsScw-cOtFu%22%3B%7D'
+    'HTTP_DNT' => '1'
+    'PATH' => 'C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files\\Git\\cmd;C:\\wamp3\\bin\\php\\php7.3.12;C:\\Program Files\\TortoiseGit\\bin;C:\\composer;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.41 (Win64) PHP/7.3.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.41 (Win64) PHP/7.3.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp3/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp3/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp3/www/deepfrypan/index.php'
+    'REMOTE_PORT' => '52293'
+    'REDIRECT_URL' => '/deepfrypan/custom/recipe/delete'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/deepfrypan/custom/recipe/delete'
+    'SCRIPT_NAME' => '/deepfrypan/index.php'
+    'PHP_SELF' => '/deepfrypan/index.php'
+    'REQUEST_TIME_FLOAT' => 1593948446.252
+    'REQUEST_TIME' => 1593948446
+]
+2020-07-11 20:41:42 [::1][1][cqrgsceql3u1fvnqb83h3aohhk][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined index: embededVideo in C:\wamp3\www\deepfrypan\protected\modules\custom\controllers\RecipeController.php:145
+Stack trace:
+#0 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\InlineAction.php(57): humhub\modules\custom\controllers\RecipeController->actionCreate()
+#1 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#2 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#3 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Module.php(528): humhub\modules\custom\controllers\RecipeController->runAction()
+#4 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\web\Application.php(103): humhub\components\Application->runAction()
+#5 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Application.php(386): humhub\components\Application->handleRequest()
+#6 C:\wamp3\www\deepfrypan\index.php(25): humhub\components\Application->run()
+#7 {main}
+2020-07-11 20:41:42 [::1][1][cqrgsceql3u1fvnqb83h3aohhk][info][application] $_GET = []
+
+$_SERVER = [
+    'REDIRECT_BASE' => '/deepfrypan'
+    'REDIRECT_STATUS' => '200'
+    'BASE' => '/deepfrypan'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '263'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => 'Cy-awlafMwgkttNwhuhwKHjZfWkiJHf1iiJ0sEXjsVpNHtP0ONV_fEX64zrMgCZqMZwVDnNlBpbdGiTUD87lYw=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded; charset=UTF-8'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'cors'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_REFERER' => 'http://localhost/deepfrypan/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_identity=ec2b6bf73256254dff2fd9f8f09c05f7b4f80c4a7363522a9bfe4570f09d8397a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A50%3A%22%5B1%2C%22096e2c7e-55f4-4653-8b7a-e22950b0499d%22%2C2592000%5D%22%3B%7D; _csrf=ecc2a5720584cd40845c27b7d7ede2414c4c0cbaf8841cdb8478500c01bec652a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22F1I6nJLtaL0JJhVBIEhgQAqcW8PdJ-T9%22%3B%7D; PHPSESSID=cqrgsceql3u1fvnqb83h3aohhk'
+    'HTTP_DNT' => '1'
+    'PATH' => 'C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files\\Git\\cmd;C:\\wamp3\\bin\\php\\php7.3.12;C:\\Program Files\\TortoiseGit\\bin;C:\\composer;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.41 (Win64) PHP/7.3.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.41 (Win64) PHP/7.3.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp3/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp3/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp3/www/deepfrypan/index.php'
+    'REMOTE_PORT' => '54774'
+    'REDIRECT_URL' => '/deepfrypan/custom/recipe/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/deepfrypan/custom/recipe/create'
+    'SCRIPT_NAME' => '/deepfrypan/index.php'
+    'PHP_SELF' => '/deepfrypan/index.php'
+    'REQUEST_TIME_FLOAT' => 1594482102.255
+    'REQUEST_TIME' => 1594482102
+]
+2020-07-11 22:44:17 [::1][1][5goihudbo1vr79ehoedlm1k6e7][error][ParseError] ParseError: syntax error, unexpected '{' in C:\wamp3\www\deepfrypan\protected\modules\custom\widgets\views\recipeDetails.php:3
+Stack trace:
+#0 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\View.php(254): yii\base\View->renderPhpFile('C:\\wamp3\\www\\de...', Array)
+#1 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\wamp3\\www\\de...', Array, Object(humhub\modules\custom\widgets\RecipeDetails))
+#2 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Widget.php(236): yii\base\View->render('recipeDetails', Array, Object(humhub\modules\custom\widgets\RecipeDetails))
+#3 C:\wamp3\www\deepfrypan\protected\modules\custom\widgets\RecipeDetails.php(44): yii\base\Widget->render('recipeDetails', Array)
+#4 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Widget.php(140): humhub\modules\custom\widgets\RecipeDetails->run()
+#5 C:\wamp3\www\deepfrypan\themes\Custom\views\content\widgets\wallEntry.php(116): yii\base\Widget::widget(Array)
+#6 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\View.php(336): require('C:\\wamp3\\www\\de...')
+#7 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\View.php(254): yii\base\View->renderPhpFile('C:\\wamp3\\www\\de...', Array)
+#8 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\wamp3\\www\\de...', Array, Object(humhub\modules\post\widgets\WallEntry))
+#9 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Widget.php(236): yii\base\View->render('@humhub/modules...', Array, Object(humhub\modules\post\widgets\WallEntry))
+#10 C:\wamp3\www\deepfrypan\protected\humhub\modules\content\widgets\WallEntry.php(234): yii\base\Widget->render('@humhub/modules...', Array)
+#11 C:\wamp3\www\deepfrypan\protected\humhub\modules\content\components\ContentActiveRecord.php(323): humhub\modules\content\widgets\WallEntry->renderWallEntry()
+#12 C:\wamp3\www\deepfrypan\protected\humhub\modules\stream\actions\Stream.php(319): humhub\modules\content\components\ContentActiveRecord->getWallOut(Array)
+#13 C:\wamp3\www\deepfrypan\protected\humhub\modules\stream\actions\Stream.php(353): humhub\modules\stream\actions\Stream::renderEntry(Object(humhub\modules\post\models\Post), Array)
+#14 C:\wamp3\www\deepfrypan\protected\humhub\modules\stream\actions\Stream.php(227): humhub\modules\stream\actions\Stream::getContentResultEntry(Object(humhub\modules\content\models\Content))
+#15 [internal function]: humhub\modules\stream\actions\Stream->run()
+#16 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#17 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#18 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('stream', Array)
+#19 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('space/space/str...', Array)
+#20 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(humhub\components\Request))
+#21 C:\wamp3\www\deepfrypan\index.php(25): yii\base\Application->run()
+#22 {main}
+2020-07-11 22:44:17 [::1][1][5goihudbo1vr79ehoedlm1k6e7][info][application] $_GET = [
+    'StreamQuery' => [
+        'sort' => 'c'
+        'from' => '0'
+        'limit' => '8'
+    ]
+    'cguid' => '6acc0287-fa5a-45cd-bb02-d57b6d05b9f4'
+]
+
+$_SERVER = [
+    'REDIRECT_BASE' => '/deepfrypan'
+    'REDIRECT_STATUS' => '200'
+    'BASE' => '/deepfrypan'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_X_CSRF_TOKEN' => 'IO9Wso25Hf9lonn9p4SJjQpuKGM4Vg9M8zBRrs1AENVm3h-E4_NRiwTuSbft7N_PQytABGkXfi-kCAHKh21E7A=='
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'cors'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_REFERER' => 'http://localhost/deepfrypan/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_identity=ec2b6bf73256254dff2fd9f8f09c05f7b4f80c4a7363522a9bfe4570f09d8397a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A50%3A%22%5B1%2C%22096e2c7e-55f4-4653-8b7a-e22950b0499d%22%2C2592000%5D%22%3B%7D; _csrf=ecc2a5720584cd40845c27b7d7ede2414c4c0cbaf8841cdb8478500c01bec652a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22F1I6nJLtaL0JJhVBIEhgQAqcW8PdJ-T9%22%3B%7D; PHPSESSID=5goihudbo1vr79ehoedlm1k6e7'
+    'HTTP_DNT' => '1'
+    'PATH' => 'C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files\\Git\\cmd;C:\\wamp3\\bin\\php\\php7.3.12;C:\\Program Files\\TortoiseGit\\bin;C:\\composer;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.41 (Win64) PHP/7.3.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.41 (Win64) PHP/7.3.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp3/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp3/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp3/www/deepfrypan/index.php'
+    'REMOTE_PORT' => '59897'
+    'REDIRECT_URL' => '/deepfrypan/s/recipes/space/space/stream'
+    'REDIRECT_QUERY_STRING' => 'StreamQuery%5Bsort%5D=c&StreamQuery%5Bfrom%5D=0&StreamQuery%5Blimit%5D=8'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'StreamQuery%5Bsort%5D=c&StreamQuery%5Bfrom%5D=0&StreamQuery%5Blimit%5D=8'
+    'REQUEST_URI' => '/deepfrypan/s/recipes/space/space/stream?StreamQuery%5Bsort%5D=c&StreamQuery%5Bfrom%5D=0&StreamQuery%5Blimit%5D=8'
+    'SCRIPT_NAME' => '/deepfrypan/index.php'
+    'PHP_SELF' => '/deepfrypan/index.php'
+    'REQUEST_TIME_FLOAT' => 1594489457.287
+    'REQUEST_TIME' => 1594489457
+]
+2020-07-12 01:41:30 [::1][1][gv2vc6lvmhh39cee0sodhenm0v][error][ParseError] ParseError: syntax error, unexpected end of file in C:\wamp3\www\deepfrypan\protected\modules\custom\widgets\views\recipeDetails.php:119
+Stack trace:
+#0 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\View.php(254): yii\base\View->renderPhpFile('C:\\wamp3\\www\\de...', Array)
+#1 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\wamp3\\www\\de...', Array, Object(humhub\modules\custom\widgets\RecipeDetails))
+#2 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Widget.php(236): yii\base\View->render('recipeDetails', Array, Object(humhub\modules\custom\widgets\RecipeDetails))
+#3 C:\wamp3\www\deepfrypan\protected\modules\custom\widgets\RecipeDetails.php(44): yii\base\Widget->render('recipeDetails', Array)
+#4 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Widget.php(140): humhub\modules\custom\widgets\RecipeDetails->run()
+#5 C:\wamp3\www\deepfrypan\themes\Custom\views\content\widgets\wallEntry.php(116): yii\base\Widget::widget(Array)
+#6 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\View.php(336): require('C:\\wamp3\\www\\de...')
+#7 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\View.php(254): yii\base\View->renderPhpFile('C:\\wamp3\\www\\de...', Array)
+#8 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\wamp3\\www\\de...', Array, Object(humhub\modules\post\widgets\WallEntry))
+#9 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Widget.php(236): yii\base\View->render('@humhub/modules...', Array, Object(humhub\modules\post\widgets\WallEntry))
+#10 C:\wamp3\www\deepfrypan\protected\humhub\modules\content\widgets\WallEntry.php(234): yii\base\Widget->render('@humhub/modules...', Array)
+#11 C:\wamp3\www\deepfrypan\protected\humhub\modules\content\components\ContentActiveRecord.php(323): humhub\modules\content\widgets\WallEntry->renderWallEntry()
+#12 C:\wamp3\www\deepfrypan\protected\humhub\modules\stream\actions\Stream.php(319): humhub\modules\content\components\ContentActiveRecord->getWallOut(Array)
+#13 C:\wamp3\www\deepfrypan\protected\humhub\modules\stream\actions\Stream.php(353): humhub\modules\stream\actions\Stream::renderEntry(Object(humhub\modules\post\models\Post), Array)
+#14 C:\wamp3\www\deepfrypan\protected\humhub\modules\stream\actions\Stream.php(227): humhub\modules\stream\actions\Stream::getContentResultEntry(Object(humhub\modules\content\models\Content))
+#15 [internal function]: humhub\modules\stream\actions\Stream->run()
+#16 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Action.php(94): call_user_func_array(Array, Array)
+#17 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\Action->runWithParams(Array)
+#18 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('stream', Array)
+#19 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('space/space/str...', Array)
+#20 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(humhub\components\Request))
+#21 C:\wamp3\www\deepfrypan\index.php(25): yii\base\Application->run()
+#22 {main}
+2020-07-12 01:41:30 [::1][1][gv2vc6lvmhh39cee0sodhenm0v][info][application] $_GET = [
+    'StreamQuery' => [
+        'sort' => 'c'
+        'from' => '0'
+        'limit' => '8'
+    ]
+    'cguid' => '6acc0287-fa5a-45cd-bb02-d57b6d05b9f4'
+]
+
+$_SERVER = [
+    'REDIRECT_BASE' => '/deepfrypan'
+    'REDIRECT_STATUS' => '200'
+    'BASE' => '/deepfrypan'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_X_CSRF_TOKEN' => 'jAFZD1j5PbhXTaSoHHkL1xuIz7MxN3Hh0wbEtrhHbA7KMBA5NrNxzDYBlOJWEV2VUs2n1GB2AIKEPpTS8mo4Nw=='
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'cors'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_REFERER' => 'http://localhost/deepfrypan/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_identity=ec2b6bf73256254dff2fd9f8f09c05f7b4f80c4a7363522a9bfe4570f09d8397a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A50%3A%22%5B1%2C%22096e2c7e-55f4-4653-8b7a-e22950b0499d%22%2C2592000%5D%22%3B%7D; _csrf=ecc2a5720584cd40845c27b7d7ede2414c4c0cbaf8841cdb8478500c01bec652a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22F1I6nJLtaL0JJhVBIEhgQAqcW8PdJ-T9%22%3B%7D; PHPSESSID=gv2vc6lvmhh39cee0sodhenm0v'
+    'HTTP_DNT' => '1'
+    'PATH' => 'C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files\\Git\\cmd;C:\\wamp3\\bin\\php\\php7.3.12;C:\\Program Files\\TortoiseGit\\bin;C:\\composer;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.41 (Win64) PHP/7.3.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.41 (Win64) PHP/7.3.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp3/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp3/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp3/www/deepfrypan/index.php'
+    'REMOTE_PORT' => '61120'
+    'REDIRECT_URL' => '/deepfrypan/s/recipes/space/space/stream'
+    'REDIRECT_QUERY_STRING' => 'StreamQuery%5Bsort%5D=c&StreamQuery%5Bfrom%5D=0&StreamQuery%5Blimit%5D=8'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'StreamQuery%5Bsort%5D=c&StreamQuery%5Bfrom%5D=0&StreamQuery%5Blimit%5D=8'
+    'REQUEST_URI' => '/deepfrypan/s/recipes/space/space/stream?StreamQuery%5Bsort%5D=c&StreamQuery%5Bfrom%5D=0&StreamQuery%5Blimit%5D=8'
+    'SCRIPT_NAME' => '/deepfrypan/index.php'
+    'PHP_SELF' => '/deepfrypan/index.php'
+    'REQUEST_TIME_FLOAT' => 1594500090.416
+    'REQUEST_TIME' => 1594500090
+]
+2020-07-13 00:07:10 [::1][1][5lrhubjmns52rnr57f682n19tr][error][yii\base\ErrorException:2] yii\base\ErrorException: rmdir(C:\wamp3\www\deepfrypan\assets\91d94bcc): Directory not empty in C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\helpers\BaseFileHelper.php:390
+Stack trace:
+#0 C:\wamp3\www\deepfrypan\protected\humhub\components\AssetManager.php(39): yii\helpers\BaseFileHelper::removeDirectory()
+#1 C:\wamp3\www\deepfrypan\protected\humhub\modules\admin\controllers\SettingController.php(111): humhub\components\AssetManager->clear()
+#2 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\InlineAction.php(57): humhub\modules\admin\controllers\SettingController->actionCaching()
+#3 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#4 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#5 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Module.php(528): humhub\modules\admin\controllers\SettingController->runAction()
+#6 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\web\Application.php(103): humhub\components\Application->runAction()
+#7 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Application.php(386): humhub\components\Application->handleRequest()
+#8 C:\wamp3\www\deepfrypan\index.php(25): humhub\components\Application->run()
+#9 {main}
+2020-07-13 00:07:01 [::1][1][5lrhubjmns52rnr57f682n19tr][info][application] $_GET = [
+    '_pjax' => '#layout-content'
+    '_' => '1594578819983'
+]
+
+$_SERVER = [
+    'REDIRECT_BASE' => '/deepfrypan'
+    'REDIRECT_STATUS' => '200'
+    'BASE' => '/deepfrypan'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '191'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/deepfrypan/admin/setting/caching'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_identity=ec2b6bf73256254dff2fd9f8f09c05f7b4f80c4a7363522a9bfe4570f09d8397a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A50%3A%22%5B1%2C%22096e2c7e-55f4-4653-8b7a-e22950b0499d%22%2C2592000%5D%22%3B%7D; PHPSESSID=5lrhubjmns52rnr57f682n19tr; _csrf=e268807bdf6d3b6feb4f12276a2a31aff6a6ef85a5a179a549f3ac1fda5e8ae1a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22SAs3SJwg792M9kiZEnauYmcoqs8K2QOi%22%3B%7D'
+    'HTTP_DNT' => '1'
+    'PATH' => 'C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files\\Git\\cmd;C:\\wamp3\\bin\\php\\php7.3.12;C:\\Program Files\\TortoiseGit\\bin;C:\\composer;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.41 (Win64) PHP/7.3.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.41 (Win64) PHP/7.3.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp3/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp3/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp3/www/deepfrypan/index.php'
+    'REMOTE_PORT' => '58321'
+    'REDIRECT_URL' => '/deepfrypan/admin/setting/caching'
+    'REDIRECT_QUERY_STRING' => '_pjax=%23layout-content&_=1594578819983'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => '_pjax=%23layout-content&_=1594578819983'
+    'REQUEST_URI' => '/deepfrypan/admin/setting/caching?_pjax=%23layout-content&_=1594578819983'
+    'SCRIPT_NAME' => '/deepfrypan/index.php'
+    'PHP_SELF' => '/deepfrypan/index.php'
+    'REQUEST_TIME_FLOAT' => 1594580821.537
+    'REQUEST_TIME' => 1594580821
+]
+2020-07-13 00:39:43 [::1][1][5lrhubjmns52rnr57f682n19tr][error][yii\base\ErrorException:2] yii\base\ErrorException: rmdir(C:\wamp3\www\deepfrypan\assets\91d94bcc): Directory not empty in C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\helpers\BaseFileHelper.php:390
+Stack trace:
+#0 C:\wamp3\www\deepfrypan\protected\humhub\components\AssetManager.php(39): yii\helpers\BaseFileHelper::removeDirectory()
+#1 C:\wamp3\www\deepfrypan\protected\humhub\modules\admin\controllers\SettingController.php(111): humhub\components\AssetManager->clear()
+#2 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\InlineAction.php(57): humhub\modules\admin\controllers\SettingController->actionCaching()
+#3 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#4 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#5 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Module.php(528): humhub\modules\admin\controllers\SettingController->runAction()
+#6 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\web\Application.php(103): humhub\components\Application->runAction()
+#7 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Application.php(386): humhub\components\Application->handleRequest()
+#8 C:\wamp3\www\deepfrypan\index.php(25): humhub\components\Application->run()
+#9 {main}
+2020-07-13 00:39:33 [::1][1][5lrhubjmns52rnr57f682n19tr][info][application] $_GET = [
+    '_pjax' => '#layout-content'
+    '_' => '1594578819983'
+]
+
+$_SERVER = [
+    'REDIRECT_BASE' => '/deepfrypan'
+    'REDIRECT_STATUS' => '200'
+    'BASE' => '/deepfrypan'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '191'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/deepfrypan/admin/setting/caching?_pjax=%23layout-content&_=1594578819983'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_identity=ec2b6bf73256254dff2fd9f8f09c05f7b4f80c4a7363522a9bfe4570f09d8397a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A50%3A%22%5B1%2C%22096e2c7e-55f4-4653-8b7a-e22950b0499d%22%2C2592000%5D%22%3B%7D; PHPSESSID=5lrhubjmns52rnr57f682n19tr; _csrf=e268807bdf6d3b6feb4f12276a2a31aff6a6ef85a5a179a549f3ac1fda5e8ae1a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22SAs3SJwg792M9kiZEnauYmcoqs8K2QOi%22%3B%7D'
+    'HTTP_DNT' => '1'
+    'PATH' => 'C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files\\Git\\cmd;C:\\wamp3\\bin\\php\\php7.3.12;C:\\Program Files\\TortoiseGit\\bin;C:\\composer;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.41 (Win64) PHP/7.3.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.41 (Win64) PHP/7.3.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp3/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp3/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp3/www/deepfrypan/index.php'
+    'REMOTE_PORT' => '60204'
+    'REDIRECT_URL' => '/deepfrypan/admin/setting/caching'
+    'REDIRECT_QUERY_STRING' => '_pjax=%23layout-content&_=1594578819983'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => '_pjax=%23layout-content&_=1594578819983'
+    'REQUEST_URI' => '/deepfrypan/admin/setting/caching?_pjax=%23layout-content&_=1594578819983'
+    'SCRIPT_NAME' => '/deepfrypan/index.php'
+    'PHP_SELF' => '/deepfrypan/index.php'
+    'REQUEST_TIME_FLOAT' => 1594582773.784
+    'REQUEST_TIME' => 1594582773
+]
+2020-07-13 00:40:11 [::1][1][5lrhubjmns52rnr57f682n19tr][error][yii\base\ErrorException:2] yii\base\ErrorException: rmdir(C:\wamp3\www\deepfrypan\assets\60d6e3b4\src\3.2.1\icon): Directory not empty in C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\helpers\BaseFileHelper.php:390
+Stack trace:
+#0 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\helpers\BaseFileHelper.php(380): yii\helpers\BaseFileHelper::removeDirectory()
+#1 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\helpers\BaseFileHelper.php(380): yii\helpers\BaseFileHelper::removeDirectory()
+#2 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\helpers\BaseFileHelper.php(380): yii\helpers\BaseFileHelper::removeDirectory()
+#3 C:\wamp3\www\deepfrypan\protected\humhub\components\AssetManager.php(39): yii\helpers\BaseFileHelper::removeDirectory()
+#4 C:\wamp3\www\deepfrypan\protected\humhub\modules\admin\controllers\SettingController.php(111): humhub\components\AssetManager->clear()
+#5 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\InlineAction.php(57): humhub\modules\admin\controllers\SettingController->actionCaching()
+#6 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#7 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#8 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Module.php(528): humhub\modules\admin\controllers\SettingController->runAction()
+#9 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\web\Application.php(103): humhub\components\Application->runAction()
+#10 C:\wamp3\www\deepfrypan\protected\vendor\yiisoft\yii2\base\Application.php(386): humhub\components\Application->handleRequest()
+#11 C:\wamp3\www\deepfrypan\index.php(25): humhub\components\Application->run()
+#12 {main}
+2020-07-13 00:39:49 [::1][1][5lrhubjmns52rnr57f682n19tr][info][application] $_GET = [
+    '_pjax' => '#layout-content'
+    '_' => '1594578819983'
+]
+
+$_SERVER = [
+    'REDIRECT_BASE' => '/deepfrypan'
+    'REDIRECT_STATUS' => '200'
+    'BASE' => '/deepfrypan'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '191'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.116 Safari/537.36'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/deepfrypan/admin/setting/caching?_pjax=%23layout-content&_=1594578819983'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_identity=ec2b6bf73256254dff2fd9f8f09c05f7b4f80c4a7363522a9bfe4570f09d8397a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A50%3A%22%5B1%2C%22096e2c7e-55f4-4653-8b7a-e22950b0499d%22%2C2592000%5D%22%3B%7D; PHPSESSID=5lrhubjmns52rnr57f682n19tr; _csrf=e268807bdf6d3b6feb4f12276a2a31aff6a6ef85a5a179a549f3ac1fda5e8ae1a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22SAs3SJwg792M9kiZEnauYmcoqs8K2QOi%22%3B%7D'
+    'HTTP_DNT' => '1'
+    'PATH' => 'C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\iCLS\\;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;C:\\Program Files\\Git\\cmd;C:\\wamp3\\bin\\php\\php7.3.12;C:\\Program Files\\TortoiseGit\\bin;C:\\composer;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\WINDOWS\\system32\\config\\systemprofile\\AppData\\Local\\Microsoft\\WindowsApps'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.41 (Win64) PHP/7.3.12 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.41 (Win64) PHP/7.3.12'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp3/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp3/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp3/www/deepfrypan/index.php'
+    'REMOTE_PORT' => '60206'
+    'REDIRECT_URL' => '/deepfrypan/admin/setting/caching'
+    'REDIRECT_QUERY_STRING' => '_pjax=%23layout-content&_=1594578819983'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => '_pjax=%23layout-content&_=1594578819983'
+    'REQUEST_URI' => '/deepfrypan/admin/setting/caching?_pjax=%23layout-content&_=1594578819983'
+    'SCRIPT_NAME' => '/deepfrypan/index.php'
+    'PHP_SELF' => '/deepfrypan/index.php'
+    'REQUEST_TIME_FLOAT' => 1594582789.575
+    'REQUEST_TIME' => 1594582789
+]

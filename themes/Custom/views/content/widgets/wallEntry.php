@@ -11,7 +11,6 @@ use humhub\modules\space\widgets\Image as SpaceImage;
 use humhub\modules\user\widgets\Image as UserImage;
 use humhub\widgets\TimeAgo;
 use yii\helpers\Url;
-
 /* @var $object \humhub\modules\content\models\Content */
 /* @var $container \humhub\modules\content\components\ContentContainerActiveRecord */
 /* @var $renderControls boolean */
@@ -36,35 +35,31 @@ foreach ($object->getLabels() as $label)
             <!-- since v1.2 -->
             <div class="stream-entry-loader"></div>
 
-            <?php if(true || $isRecipe){ ?>
-              <ul class="nav nav-pills preferences">
-                <li>
-                  <a href="#" data-action-click="ui.modal.load" data-action-url="<?= Url::toRoute('/custom/modals/edit/'.$object->content->object_id) ?>">Edit</a>
-                </li>
-                <li>
-                  <a href="#" data-action-click="ui.modal.load" data-action-url="<?= Url::toRoute('/custom/modals/delete/'.$object->content->id.'/'.$object->content->object_id) ?>">Delete</a>
-                </li>
-              </ul>
-            <?php //}else{ ?>
+            <!-- start: show wall entry options -->
+            <?php if ($renderControls) : ?>
+                <ul class="nav nav-pills preferences">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"
+                           aria-label="<?= Yii::t('base', 'Toggle stream entry menu'); ?>" aria-haspopup="true">
+                            <i class="fa fa-angle-down"></i>
+                        </a>
 
-              <!-- start: show wall entry options -->
-              <?php if ($renderControls) : ?>
-                  <ul class="nav nav-pills preferences">
-                      <li class="dropdown">
-                          <a class="dropdown-toggle" data-toggle="dropdown" href="#"
-                             aria-label="<?= Yii::t('base', 'Toggle stream entry menu'); ?>" aria-haspopup="true">
-                              <i class="fa fa-angle-down"></i>
-                          </a>
-
-                          <ul class="dropdown-menu pull-right">
+                        <ul class="dropdown-menu pull-right">
+                          <?php if($isRecipe){ ?>
+                            <li>
+                              <a href="#" data-action-click="ui.modal.load" data-action-url="<?= Url::toRoute('/custom/modals/delete/'.$object->content->id.'/'.$object->content->object_id) ?>"><i class="fa fa-trash-o"></i> Delete</a>
+                            </li>
+                            <li>
+                              <a href="#" data-action-click="ui.modal.load" data-action-url="<?= Url::toRoute('/custom/modals/edit/'.$object->content->object_id) ?>"><i class="fa fa-pencil"></i> Edit</a>
+                            </li>
+                            <?php }else{ ?>
                               <?= WallEntryControls::widget(['object' => $object, 'wallEntryWidget' => $wallEntryWidget]); ?>
-                          </ul>
-                      </li>
-                  </ul>
-              <?php endif; ?>
-              <!-- end: show wall entry options -->
-
-            <?php } ?>
+                            <?php } ?>
+                        </ul>
+                    </li>
+                </ul>
+            <?php endif; ?>
+            <!-- end: show wall entry options -->
 
             <?=
             UserImage::widget([

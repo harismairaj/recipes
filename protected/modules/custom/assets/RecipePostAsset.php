@@ -6,18 +6,16 @@
  */
 namespace humhub\modules\custom\assets;
 use yii\web\AssetBundle;
-class RecipeFormAsset extends AssetBundle
+class RecipePostAsset extends AssetBundle
 {
     public $sourcePath = '@custom/resources';
-    public $css = ['css/recipeForm.css'];
+    public $css = ['css/recipePost.css'];
     public $js = [
-        'js/recipeForm.js'
+        'js/recipePost.js'
     ];
 
     public $depends = [
-        // 'humhub\assets\AtJsAsset',
-        //'humhub\modules\custom\assets\textAreaHelperAsset',
-        'humhub\modules\custom\assets\DataTableAsset'
+        'humhub\modules\custom\assets\ChartAsset'
     ];
 }
 ?>

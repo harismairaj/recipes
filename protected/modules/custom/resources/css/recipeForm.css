@@ -33,8 +33,7 @@ input[type=number].form-control {
   position: relative;
 }
 
-.image-wrapper,
-.video-wrapper,
+.asset-wrapper,
 .custom-table {
   margin-bottom: 15px;
 }

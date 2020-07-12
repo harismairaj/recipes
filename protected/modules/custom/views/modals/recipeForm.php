@@ -1,6 +1,6 @@
 <?php
 // use yii\helpers\Html;
-\humhub\modules\custom\assets\RecipeFormAsset::register($this);
+  \humhub\modules\custom\assets\RecipeFormAsset::register($this);
 ?>
 <div class="modal-dialog modal-dialog-large animated fadeIn">
     <div class="modal-content">
@@ -65,21 +65,15 @@
                 </div>
               </div>
 
-              <div class="col-md-6 video-wrapper">
-                <div class="btn-group btn-group-justified" role="group" aria-label="Upload Recipe Video">
-                  <div class="btn-group" role="group">
-                    <button id="uploadRecipeVideo" class="btn btn-info">Upload Recipe Video</button>
-                    <input type="file" style="display:none" name="uploadRecipeVideo" title="Upload file">
-                  </div>
+              <div class="col-md-12">
+                <div class="form-heading">
+                  YouTube Link
                 </div>
-              </div>
-
-              <div class="col-md-6 image-wrapper">
-                <div class="btn-group btn-group-justified" role="group" aria-label="Upload Recipe Image">
-                  <div class="btn-group" role="group">
-                    <button id="uploadRecipeImage" class="btn btn-info">Upload Recipe Image</button>
-                    <input type="file" style="display:none" name="uploadRecipeImage" title="Upload file">
-                  </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="embededVideo"
+                  <?= (isset($embededVideo)?'data-id="'.$embededVideo["id"].'"':'') ?>
+                  value="<?= (isset($embededVideo)?$embededVideo["text"]:"") ?>">
+                  <p class="help-block help-block-error"></p>
                 </div>
               </div>
 
