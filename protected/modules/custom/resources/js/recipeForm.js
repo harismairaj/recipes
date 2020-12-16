@@ -122,7 +122,7 @@ humhub.module('recipeForm', function(module, require, $)
           // data: recipeForm.instructions.tags,
           limit: 200,
           // headerTpl: "<small>Select ingredient</small>",
-          // displayTpl: "<li><img src='/deepfrypan/uploads/profile_image/${name}.jpg' height='20' width='20'/> ${name} </li>",
+          // displayTpl: "<li><img src='/masalajaat/uploads/profile_image/${name}.jpg' height='20' width='20'/> ${name} </li>",
           // insertTpl: "<a href='#'>${name}</a>",
           callbacks: {
             // beforeInsert: function(value, $li)
@@ -174,7 +174,7 @@ humhub.module('recipeForm', function(module, require, $)
         // if(trg.val() != "")
         // {
         //   $.ajax({
-        //     url:window.location.origin+"/deepfrypan/custom/recipe/",
+        //     url:window.location.origin+"/masalajaat/custom/recipe/",
         //     data:{
         //       instructions:trg.val()
         //     },
@@ -196,7 +196,7 @@ humhub.module('recipeForm', function(module, require, $)
     create:function()
     {
       $.ajax({
-        url:window.location.origin+"/deepfrypan/custom/recipe/create",
+        url:window.location.origin+"/masalajaat/custom/recipe/create",
         data:$("#recipeModalForm").serializeArray(),
         dataType:"json",
         showLoader:true,
@@ -211,7 +211,7 @@ humhub.module('recipeForm', function(module, require, $)
     edit:function()
     {
       $.ajax({
-        url:window.location.origin+"/deepfrypan/custom/recipe/edit",
+        url:window.location.origin+"/masalajaat/custom/recipe/edit",
         data:$("#recipeModalForm").serializeArray(),
         dataType:"json",
         showLoader:true,

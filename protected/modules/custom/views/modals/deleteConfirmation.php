@@ -23,7 +23,7 @@
       $("#confirmDeleteRecipe").click(function()
       {
         $.ajax({
-          url:window.location.origin+"/deepfrypan/custom/recipe/delete",
+          url:window.location.origin+"/masalajaat/custom/recipe/delete",
           data:{
             content_id:<?= $content_id ?>,
             object_id:<?= $object_id ?>

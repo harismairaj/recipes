@@ -8,7 +8,7 @@
   {
     ?>
     <li>
-      <?= $details['serve'] ?> </br><small>Serve</small>
+      <?= $details['serve'] ?> </br><small>Serving</small>
     </li>
     <?php
   }
@@ -32,35 +32,13 @@
   }
   ?>
 </ul>
-<div class="row zero-padding">
-  <div class="col-sm-5 col-media">
+<div class="row">
+  <div class="col-md-4 col-media" style="height:320px">
     <canvas height="300" width="300" class="chart" id="chart_<?= $id ?>"></canvas>
     <div id="embededVideo_<?= $id ?>" class="youtube-iframe" data-embed="<?= $details['embededVideo'] ?>"></div>
   </div>
-  <div class="col-sm-7">
+  <div class="col-md-8">
       <?php
-      if(isset($details['instruction']))
-      {
-        ?>
-        <div class="col-sm-8">
-          <ul class="list">
-            <li class="head">
-              Instruction
-            </li>
-            <?php
-            foreach ($details['instruction'] as $instruction)
-            {
-            ?>
-            <li>
-              <?= $instruction ?>
-            </li>
-            <?php
-            }
-            ?>
-          </ul>
-        </div>
-        <?php
-      }
       if(isset($details['ingredient']))
       {
         ?>
@@ -75,6 +53,28 @@
             ?>
             <li>
               <?= $ingredient ?>
+            </li>
+            <?php
+            }
+            ?>
+          </ul>
+        </div>
+        <?php
+      }
+      if(isset($details['instruction']))
+      {
+        ?>
+        <div class="col-sm-8">
+          <ul class="list">
+            <li class="head">
+              Instruction
+            </li>
+            <?php
+            foreach ($details['instruction'] as $instruction)
+            {
+            ?>
+            <li>
+              <?= $instruction ?>
             </li>
             <?php
             }

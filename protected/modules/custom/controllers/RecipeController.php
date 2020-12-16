@@ -121,7 +121,7 @@ class RecipeController extends ContentContainerController
     $post->content->contentcontainer_id = (int) $request['contentcontainer_id'];
     if($post->save())
     {
-      // C:\wamp3\www\deepfrypan\protected\humhub\modules\content\widgets\WallCreateContentForm.php line 142
+      // C:\wamp3\www\masalajaat\protected\humhub\modules\content\widgets\WallCreateContentForm.php line 142
       $topics = [7];//Yii::$app->request->post('postTopicInput');
       if(!empty($topics))
       {
