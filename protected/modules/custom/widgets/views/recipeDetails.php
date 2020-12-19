@@ -1,96 +1,75 @@
 <?php
   \humhub\modules\custom\assets\RecipePostAsset::register($this);
+  use yii\helpers\Html;
 ?>
-
-<ul class="inline-list">
-  <?php
-  if(isset($details['serve']))
-  {
-    ?>
-    <li>
-      <?= $details['serve'] ?> </br><small>Serving</small>
-    </li>
-    <?php
-  }
-
-  if(isset($details['prepTime']))
-  {
-    ?>
-    <li>
-      <?= $details['prepTime'] ?> </br><small>Preparation Time</small>
-    </li>
-    <?php
-  }
-
-  if(isset($details['cookTime']))
-  {
-    ?>
-    <li>
-      <?= $details['cookTime'] ?> </br><small>Cooking Time</small>
-    </li>
-    <?php
-  }
-  ?>
-</ul>
-<div class="row">
-  <div class="col-md-4 col-media" style="height:320px">
-    <canvas height="300" width="300" class="chart" id="chart_<?= $id ?>"></canvas>
-    <div id="embededVideo_<?= $id ?>" class="youtube-iframe" data-embed="<?= $details['embededVideo'] ?>"></div>
-  </div>
-  <div class="col-md-8">
-      <?php
-      if(isset($details['ingredient']))
-      {
-        ?>
-        <div class="col-sm-4">
-          <ul class="list">
-            <li class="head">
-              Ingredient
-            </li>
-            <?php
-            foreach ($details['ingredient'] as $ingredient)
-            {
-            ?>
-            <li>
-              <?= $ingredient ?>
-            </li>
-            <?php
-            }
-            ?>
-          </ul>
-        </div>
+<div class="recipe-details">
+  <div class="recipe-header">
+    <div class="shareLinkContainer">
         <?php
-      }
-      if(isset($details['instruction']))
-      {
+          $option = "var width=575,height=400,left=($(window).width()-width)/2,top=($(window).height()-height)/2,url=this.href;opts='status=1'+',width='+width+',height='+height+',top='+top+',left=' + left;window.open(url, 'share', opts);return false;";
         ?>
-        <div class="col-sm-8">
-          <ul class="list">
-            <li class="head">
-              Instruction
-            </li>
-            <?php
-            foreach ($details['instruction'] as $instruction)
-            {
-            ?>
-            <li>
-              <?= $instruction ?>
-            </li>
-            <?php
-            }
-            ?>
-          </ul>
-        </div>
-        <?php
-      }
-      ?>
+        <?= Html::a('<i class="fa fa-facebook"></i>', 'https://www.facebook.com/sharer/sharer.php?u=' . urlencode($permalink) . '&description=' . urlencode($object->getContentDescription()),['onclick'=> $option]);?>
+        <?= Html::a('<i class="fa fa-twitter"></i>', 'https://twitter.com/intent/tweet?text=' . urlencode($object->getContentDescription()) . '&url=' . urlencode($permalink),['onclick'=> $option]);?>
+        <?= Html::a('<i class="fa fa-linkedin-square"></i>', 'https://www.linkedin.com/shareArticle?summary=&mini=true&source=&title=' . urlencode($object->getContentDescription()) . '&url=' . urlencode($permalink) . '&ro=false', ['onclick'=> $option]);?>
+    </div>
+    <div style="height:320px">
+      <canvas height="300" width="300" class="chart" id="chart_<?= $object->content->object_id ?>"></canvas>
+      <div id="embededVideo_<?= $object->content->object_id ?>" class="youtube-iframe" data-embed="<?= $details['embededVideo'] ?>"></div>
+    </div>
+    <div>
+      <a class="recipe-title" href="<?= $permalink ?>"><?= $content ?></a>
+    </div>
   </div>
+  <div class="recipe-body">
+    <div class="row">
+      <div class="col-sm-4">
+        <ul class="list">
+          <li class="head">
+            Ingredient
+          </li>
+          <?php
+          foreach ($details['ingredient'] as $ingredient)
+          {
+          ?>
+          <li>
+            <?= $ingredient ?>
+          </li>
+          <?php
+          }
+          ?>
+        </ul>
+      </div>
+      <div class="col-sm-6">
+        <ul class="list">
+          <li class="head">
+            Instruction
+          </li>
+          <?php
+          foreach ($details['instruction'] as $instruction)
+          {
+          ?>
+          <li>
+            <?= $instruction ?>
+          </li>
+          <?php
+          }
+          ?>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        <ul class="list">
+            <li><?= $details['serve'] ?> </br><small>Serving</small></li>
+            <li><?= $details['prepTime'] ?> </br><small>Preparation Time</small></li>
+            <li><?= $details['cookTime'] ?> </br><small>Cooking Time</small></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(document).ready(function ()
+      {
+        recipePost.youtube("#embededVideo_<?= $object->content->object_id ?>");
+        recipePost.chart("#chart_<?= $object->content->object_id ?>",<?= json_encode($details['instruction']) ?>);
+      });
+  </script>
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function ()
-    {
-      recipePost.youtube("#embededVideo_<?= $id ?>");
-      recipePost.chart("#chart_<?= $id ?>",<?= json_encode($details['instruction']) ?>);
-    });
-</script>

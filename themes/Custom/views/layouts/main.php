@@ -73,7 +73,7 @@ elseif($isAdmin)
 
         <?php }else{ ?>
 
-          <div>
+          <!-- div>
               <div class="container">
                 <div class="cntr">
                   <div class="cntr-innr">
@@ -86,7 +86,7 @@ elseif($isAdmin)
                 </div>
               </div>
 
-          </div>
+          </div -->
 
         <?php } ?>
         <?= $content; ?>

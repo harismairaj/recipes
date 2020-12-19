@@ -33,12 +33,12 @@ $this->registerJsConfig('content.form', [
 
 $pickerUrl = ($contentContainer instanceof Space) ? $contentContainer->createUrl('/space/membership/search') : null;
 ?>
-<div class="panel panel-default clearfix">
+<div class="panel panel-default clearfix add-recipe">
     <div class="panel-body form-ingredient">
-        <a href="#" data-action-click="ui.modal.load" data-action-url="<?= Url::toRoute('/custom/modals/create/'.$contentContainer->contentcontainer_id) ?>">Create Recipe</a>
+        <a href="#" data-action-click="ui.modal.load" data-action-url="<?= Url::toRoute('/custom/modals/create/'.$contentContainer->contentcontainer_id) ?>"><i class="fa fa-fire"></i><br><small>Create Recipe</small></a>
     </div>
 </div>
-<div class="panel panel-default clearfix">
+<div class="panel panel-default clearfix add-post">
     <div class="panel-body" id="contentFormBody" style="display:none;" data-action-component="content.form.CreateForm" >
         <?= Html::beginForm($submitUrl, 'POST'); ?>
 
@@ -100,7 +100,7 @@ $pickerUrl = ($contentContainer instanceof Space) ? $contentContainer->createUrl
                                 <li>
                                     <?= Link::withAction(Yii::t('ContentModule.widgets_views_contentForm', 'Notify members'), 'notifyUser')->icon('fa-bell')?>
                                 </li>
-                                 <li>
+                                <li>
                                      <?= Link::withAction(Yii::t('ContentModule.base', 'Topics'), 'setTopics')->icon(Yii::$app->getModule('topic')->icon) ?>
                                 </li>
                                 <?php if ($canSwitchVisibility): ?>

@@ -31,3 +31,5 @@
 <!-- start: Android Fullscreen -->
 <meta name="mobile-web-app-capable" content="yes">
 <!-- end: Android Fullscreen -->
+
+<link rel="stylesheet" type="text/css" href="<?= $this->theme->getBaseUrl(); ?>/css/custom.css"></link>

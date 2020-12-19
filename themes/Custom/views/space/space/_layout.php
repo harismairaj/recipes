@@ -14,9 +14,7 @@ use humhub\widgets\FooterMenu;
 /** @var \humhub\modules\content\components\ContentContainerController $context */
 $context = $this->context;
 $space = $context->contentContainer;
-if(Yii::$app->user->isAdmin())
-{
-  ?>
+if(Yii::$app->user->isAdmin()){ ?>
   <div class="container space-layout-container">
       <div class="row">
           <div class="col-md-12">
@@ -28,7 +26,7 @@ if(Yii::$app->user->isAdmin())
               <?= Menu::widget(['space' => $space]); ?>
               <br>
           </div>
-          <div class="col-md-<?= ($this->hasSidebar()) ? '7' : '10' ?> layout-content-container">
+          <div class="col-md-<?= ($this->hasSidebar()) ? '7' : '12' ?> layout-content-container">
               <?= SpaceContent::widget(['contentContainer' => $space, 'content' => $content]) ?>
           </div>
           <?php if ($this->hasSidebar()): ?>
@@ -38,21 +36,14 @@ if(Yii::$app->user->isAdmin())
               </div>
           <?php endif; ?>
       </div>
-
       <?php if (!$this->hasSidebar()): ?>
           <?= FooterMenu::widget(['location' => FooterMenu::LOCATION_FULL_PAGE]); ?>
       <?php endif; ?>
   </div>
-  <?php
-} else {
-  ?>
+<?php }else{ ?>
   <div class="container space-layout-container">
-      <div class="row space-content">
-          <div class="col-md-12 layout-content-container">
-              <?= SpaceContent::widget(['contentContainer' => $space, 'content' => $content]) ?>
-          </div>
+      <div class="layout-content-container">
+          <?= SpaceContent::widget(['contentContainer' => $space, 'content' => $content]) ?>
       </div>
   </div>
-  <?php
-}
-?>
+<?php } ?>

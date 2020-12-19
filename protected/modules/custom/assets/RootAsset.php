@@ -9,7 +9,7 @@ use yii\web\AssetBundle;
 class RootAsset extends AssetBundle
 {
     public $sourcePath = '@custom/resources';
-    public $css = ['css/root.css'];
+    public $css = [];
     public $js = [
         'js/root.js'
     ];

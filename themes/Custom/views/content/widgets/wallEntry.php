@@ -27,8 +27,7 @@ foreach ($object->getLabels() as $label)
   }
 }
 ?>
-
-<div class="<?= ($isRecipe?"recipe ":"") ?>panel panel-default wall_<?= $object->getUniqueId(); ?>">
+<div class="<?= ($isRecipe?"recipe ":"normal-post ") ?>panel panel-default wall_<?= $object->getUniqueId(); ?>">
     <div class="panel-body">
         <div class="media">
             <!-- since v1.2 -->
@@ -36,17 +35,8 @@ foreach ($object->getLabels() as $label)
 
             <div class="content" id="wall_content_<?= $object->getUniqueId(); ?>">
                 <?php if($isRecipe){ ?>
-                  <div class="recipe-details">
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <a class="recipe-title" href="<?= Url::to(['/content/perma', 'id' => $object->content->id], true) ?>">
-                          <?= $content; ?>
-                        </a>
-                      </div>
-                    </div>
-                    <?= RecipeDetails::widget(['object_id' => $object->content->object_id]); ?>
-                  </div>
-                <?php }else {
+                    <?= RecipeDetails::widget(['object' => $object, 'content' => $content]); ?>
+                <?php }else{
                   echo $content;
                 } ?>
             </div>
@@ -61,7 +51,7 @@ foreach ($object->getLabels() as $label)
                         </a>
 
                         <ul class="dropdown-menu pull-right">
-                          <?php if($isRecipe){ ?>
+                          <?php if($isRecipe && ($object->content->created_by == Yii::$app->user->id || Yii::$app->user->isAdmin())){ ?>
                             <li>
                               <a href="#" data-action-click="ui.modal.load" data-action-url="<?= Url::toRoute('/custom/modals/delete/'.$object->content->id.'/'.$object->content->object_id) ?>"><i class="fa fa-trash-o"></i> Delete</a>
                             </li>
@@ -77,47 +67,41 @@ foreach ($object->getLabels() as $label)
             <?php endif; ?>
             <!-- end: show wall entry options -->
 
-            <hr/>
-
-            <div class="info-panel">
-              <?=
-              UserImage::widget([
-                'user' => $user,
-                'width' => 40,
-                'htmlOptions' => ['class' => 'author-image','data-contentcontainer-id' => $user->contentcontainer_id]
-              ]);
-              ?>
-              <br>
-              <?= Html::containerLink($user); ?>
-              <?php if ($container && $showContentContainer): ?>
-                <span class="viaLink">
-                  <i class="fa fa-caret-right" aria-hidden="true"></i>
-                  <?= Html::containerLink($container); ?>
-                </span>
-              <?php endif; ?>
-              <div class="info-panel-details">
-                <div class="media-subheading">
-                  <?= TimeAgo::widget(['timestamp' => $createdAt]); ?>
-                  <?php if ($updatedAt !== null) : ?>
-                    &middot;
-                    <span class="tt"
-                    title="<?= Yii::$app->formatter->asDateTime($updatedAt); ?>"><?= Yii::t('ContentModule.base', 'Updated'); ?></span>
-                  <?php endif; ?>
-                </div>
-
-                <div class="<?= ($renderControls) ? 'labels' : '' ?>">
-                  <?= WallEntryLabels::widget(['object' => $object]); ?>
-                </div>
-              </div>
-            </div>
-
-            <!-- wall-entry-addons class required since 1.2 -->
-            <?php if ($renderAddons) : ?>
-                <div class="stream-entry-addons clearfix">
-                    <?= WallEntryAddons::widget($addonOptions); ?>
-                </div>
-            <?php endif; ?>
-
         </div>
+    </div>
+    <div class="panel-bottom">
+      <div class="info-panel">
+        <?=
+        UserImage::widget([
+          'user' => $user,
+          'width' => 20,
+          'htmlOptions' => ['class' => 'author-image','data-contentcontainer-id' => $user->contentcontainer_id]
+        ]);
+        ?>
+        <?= Html::containerLink($user); ?>
+        <?php if ($container && $showContentContainer): ?>
+          <span class="viaLink">
+            <i class="fa fa-caret-right" aria-hidden="true"></i>
+            <?= Html::containerLink($container); ?>
+          </span>
+        <?php endif; ?>
+        <div class="media-subheading">
+          <?php if ($updatedAt !== null){
+            echo "<div>posted at ".TimeAgo::widget(['timestamp' => $updatedAt])."</div>";
+          }else{
+            echo "<div>modified at ".TimeAgo::widget(['timestamp' => $createdAt])."</div>";
+          } ?>
+        </div>
+        <div class="<?= ($renderControls) ? 'labels' : '' ?>">
+          <?= WallEntryLabels::widget(['object' => $object]); ?>
+        </div>
+      </div>
+
+      <!-- wall-entry-addons class required since 1.2 -->
+      <?php if ($renderAddons) : ?>
+        <div class="stream-entry-addons clearfix">
+          <?= WallEntryAddons::widget($addonOptions); ?>
+        </div>
+      <?php endif; ?>
     </div>
 </div>
