@@ -122,7 +122,7 @@ class RecipeController extends ContentContainerController
     if($post->save())
     {
       // C:\wamp3\www\masalajaat\protected\humhub\modules\content\widgets\WallCreateContentForm.php line 142
-      $topics = [7];//Yii::$app->request->post('postTopicInput');
+      $topics = [8];//Yii::$app->request->post('postTopicInput');
       if(!empty($topics))
       {
         \humhub\modules\topic\models\Topic::attach($post->content, $topics);

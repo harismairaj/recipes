@@ -37,6 +37,41 @@ humhub.module('recipePost', function(module, require, $)
             }
           }
       });
+    },
+    parallax:function()
+    {
+      lax.init();
+      lax.addDriver('scrollY', function () {
+        return window.scrollY
+      });
+      lax.addElements(".recipe.panel", {
+        scrollY: {
+          translateX: [
+            ["elInY", "elCenterY", "elOutY"],
+            ['screenWidth', 0, 0],
+            {
+              easing: 'easeInOutQuart',
+            }
+          ],
+          opacity: [
+            ["elInY", "elCenterY", "elOutY"],
+            [0, 1, 0],
+            {
+              easing: 'easeInOutCubic'
+            }
+          ],
+          "box-shadow": [
+            ["elInY+200", "elCenterY", "elOutY-200"],
+            [0, 50, 0],
+            {
+              easing: 'easeInOutQuint',
+              cssFn: (val) => {
+                return `${val}px ${val}px ${val}px rgba(0,0,0,0.5)`
+              }
+            }
+          ],
+        }
+      });
     }
   };
 });

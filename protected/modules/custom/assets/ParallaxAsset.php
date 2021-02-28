@@ -6,16 +6,12 @@
  */
 namespace humhub\modules\custom\assets;
 use yii\web\AssetBundle;
-class RecipePostAsset extends AssetBundle
+class ParallaxAsset extends AssetBundle
 {
     public $sourcePath = '@custom/resources';
     public $css = [];
     public $js = [
-        'js/recipePost.js'
-    ];
-
-    public $depends = [
-        'humhub\modules\custom\assets\ParallaxAsset'
+        'js/lax.min.js'
     ];
 }
 ?>
