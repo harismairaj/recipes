@@ -26,6 +26,7 @@ foreach ($object->getLabels() as $label)
     break;
   }
 }
+
 ?>
 <div class="<?= ($isRecipe?"recipe ":"normal-post ") ?>panel panel-default wall_<?= $object->getUniqueId(); ?>">
     <div class="panel-body">
@@ -105,3 +106,10 @@ foreach ($object->getLabels() as $label)
       <?php endif; ?>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function ()
+    {
+      recipePost.parallax();
+    });
+</script>

@@ -39,7 +39,7 @@ $pickerUrl = ($contentContainer instanceof Space) ? $contentContainer->createUrl
     </div>
 </div>
 <div class="panel panel-default clearfix add-post">
-    <div class="panel-body" id="contentFormBody" style="display:none;" data-action-component="content.form.CreateForm" >
+    <div class="panel-body" id="contentFormBody" style="display:none;" data-action-component="content.form.CreateForm">
         <?= Html::beginForm($submitUrl, 'POST'); ?>
 
         <?= $form; ?>
@@ -94,11 +94,11 @@ $pickerUrl = ($contentContainer instanceof Space) ? $contentContainer->createUrl
 
                     <ul class="nav nav-pills preferences" style="right: 0; top: 5px;">
                         <li class="dropdown">
-                            <a class="dropdown-toggle" style="padding: 5px 10px;" data-toggle="dropdown" href="#" aria-label="<?= Yii::t('base', 'Toggle post menu'); ?>" aria-haspopup="true">
+                            <a class="dropdown-toggle" style="padding: 5px 10px;" data-toggle="dropdown" href="#" aria-label="<?= Yii::t('base', 'Toggle post menu') ?>" aria-haspopup="true">
                                 <i class="fa fa-cogs"></i></a>
                             <ul class="dropdown-menu pull-right">
                                 <li>
-                                    <?= Link::withAction(Yii::t('ContentModule.widgets_views_contentForm', 'Notify members'), 'notifyUser')->icon('fa-bell')?>
+                                    <?= Link::withAction(Yii::t('ContentModule.widgets_views_contentForm', 'Notify members'), 'notifyUser')->icon('fa-bell') ?>
                                 </li>
                                 <li>
                                      <?= Link::withAction(Yii::t('ContentModule.base', 'Topics'), 'setTopics')->icon(Yii::$app->getModule('topic')->icon) ?>
@@ -116,7 +116,7 @@ $pickerUrl = ($contentContainer instanceof Space) ? $contentContainer->createUrl
             </div>
 
             <?= UploadProgress::widget(['id' => 'contentFormFiles_progress']) ?>
-            <?= FilePreview::widget(['id' => 'contentFormFiles_preview', 'edit' => true, 'options' => ['style' => 'margin-top:10px;']]); ?>
+            <?= FilePreview::widget(['id' => 'contentFormFiles_preview', 'edit' => true, 'options' => ['style' => 'margin-top:10px;']]) ?>
 
         </div>
         <!-- /contentForm_Options -->

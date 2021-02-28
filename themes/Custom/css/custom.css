@@ -1,0 +1,226 @@
+#topbar-first .dropdown.account>a, #topbar-first .dropdown.account.open>a, #topbar-first .dropdown.account>a:hover, #topbar-first .dropdown.account.open>a:hover{
+  background:none !important;
+}
+body.user .topbar{
+  position: relative;
+  background:none !important;
+}
+body.user{
+  padding-top: 80px;
+  padding-bottom: 140px;
+  /* background-image: url("../img/texture1.jpg"); */
+  background-color: #222;
+  overflow-x: hidden;
+}
+
+/* Recipe post */
+input[type=number].form-control {
+  padding: 0 5px;
+}
+
+.custom-table .remove-btn {
+  border-radius: 50px;
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  height: 14px;
+  width: 14px;
+  font-size: 10px;
+  padding: 0;
+  text-align: center;
+  position: absolute;
+  left: -15px;
+  top: 12px;
+}
+
+.dataTables_empty {
+  display: none;
+}
+
+.custom-table table.dataTable th {
+  padding: 0;
+  font-weight: 400;
+  color: #000;
+  text-align: right;
+}
+
+.custom-table table.dataTable td {
+  padding: 1px 1px;
+  position: relative;
+}
+
+.asset-wrapper,
+.custom-table {
+  margin-bottom: 15px;
+}
+
+.hashTag{
+  height: auto;
+}
+
+.recipe-body::after{
+    content:"";
+    clear:both;
+    float:none;
+}
+
+/*.recipe-body > .row,*/
+.recipe .panel-bottom,
+body.user .normal-post .panel-bottom{
+  display: none;
+}
+.recipe-body > .row {
+    margin: 0;
+    padding: 10px;
+    background-color: #333;
+}
+.recipe .panel-bottom{
+    background-color: #ddd;
+}
+.recipe .panel-body {
+    padding:0;
+}
+/* .wall-entry:nth-child(odd) .recipe-body,
+.wall-entry:nth-child(odd) .recipe-header{
+  float: none;
+} */
+
+/* .wall-entry:nth-child(3n+2) .recipe-body,
+.wall-entry:nth-child(3n+2) .recipe-header{
+    float: right;
+} */
+
+.recipe.panel {
+  /* box-shadow: -1px 5px 9px 0px #000;
+  -webkit-box-shadow: -1px 5px 9px 0px #000;
+  -moz-box-shadow: -1px 5px 9px 0px #000; */
+  background: none;
+  margin: 100px 0;
+}
+.recipe.panel .recipe-details::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.1;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/314.svg");
+    background-size: 100%;
+    background-position: top;
+    z-index: -1;
+}
+.shareLinkContainer {
+  text-align: center;
+}
+
+.recipe-details ul.list li:last-child{
+    border: none;
+}
+.recipe-details .recipe-title,
+.recipe-details .recipe-title p {
+  font-size: 30px;
+  text-transform: capitalize;
+  font-weight: bold;
+  text-align: center;
+  color: #fff !important;
+}
+.recipe-details ul.list {
+    padding: 0;
+    margin: 0;
+}
+.recipe-details ul.list li {
+    list-style: none;
+    border-bottom:1px solid #eee;
+}
+.recipe-details ul.list li.head {
+    font-weight:bold;
+    font-size:20px;
+    text-transform:uppercase;
+}
+.wall-entry-controls {
+  margin: 10px;
+}
+.info-panel {
+  padding: 10px;
+}
+.recipe-details canvas {
+  position: absolute;
+  left:50%;
+  transform: translate3d(-150px, 0px, 0px);
+  z-index: 1;
+}
+.zero-padding{
+  padding: 0;
+}
+
+.recipe-header {
+    width: 30%;
+    display: table-cell;
+}
+.recipe-details {
+    display: table;
+    width: 100%;
+    min-height: 320px;
+}
+.recipe-body {
+    display: table-cell;
+    width: 70%;
+    vertical-align: middle;
+    margin-top: 150px;
+}
+
+/*** Youtube ***/
+.youtube-iframe {
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  height: 100%;
+  width: 270px;
+  /* border-radius: 50%; */
+  margin: auto;
+  /* top: 15px; */
+}
+
+.youtube-iframe .play-button {
+  cursor: pointer;
+  width: 70px;
+  height: 70px;
+  background-color: #333;
+  box-shadow: 0 0 30px rgba(0,0,0,.6);
+  z-index: 1;
+  opacity: .9;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%,0);
+}
+
+.youtube-iframe .play-button:before {
+  content: "";
+  border-style: solid;
+  border-width: 15px 0 15px 26px;
+  border-color: transparent transparent transparent #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%,0);
+}
+
+.youtube-iframe .img {
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+
+}
+
+@media screen and (max-width: 992px) {
+
+}
