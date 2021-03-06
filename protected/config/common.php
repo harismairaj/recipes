@@ -23,7 +23,15 @@ return [
 							]*/
 							'custom/modals/create/<contentcontainer_id:\d+>' => 'custom/modals/create',
 							'custom/modals/edit/<object_id:\d+>' => 'custom/modals/edit',
-							'custom/modals/delete/<content_id:\d+>/<object_id:\d+>' => 'custom/modals/delete'
+							'custom/modals/delete/<content_id:\d+>/<object_id:\d+>' => 'custom/modals/delete',
+							[
+                  'pattern' => 'recipe/<contentId:\d+>/<keyword:.+>',
+                  'route' => 'custom/home',
+                  'suffix' => '/',
+                  'normalizer' => [
+                      'collapseSlashes' => true
+                  ]
+              ]
 						]
         ]
     ],

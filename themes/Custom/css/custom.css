@@ -65,8 +65,9 @@ input[type=number].form-control {
 }
 
 /*.recipe-body > .row,*/
-.recipe .panel-bottom,
-body.user .normal-post .panel-bottom{
+/* .recipe .panel-bottom,
+body.user .normal-post .panel-bottom, */
+.info-panel .labels{
   display: none;
 }
 .recipe-body > .row {
@@ -78,7 +79,7 @@ body.user .normal-post .panel-bottom{
     background-color: #ddd;
 }
 .recipe .panel-body {
-    padding:0;
+    padding:0 !important;
 }
 /* .wall-entry:nth-child(odd) .recipe-body,
 .wall-entry:nth-child(odd) .recipe-header{
@@ -139,7 +140,7 @@ body.user .normal-post .panel-bottom{
     text-transform:uppercase;
 }
 .wall-entry-controls {
-  margin: 10px;
+  margin: 10px !important;
 }
 .info-panel {
   padding: 10px;

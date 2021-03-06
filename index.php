@@ -9,7 +9,7 @@
 // comment out the following two lines when deployed to production
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
-defined('RECIPIES_SPACE_GUID') or define('RECIPIES_SPACE_GUID', '6acc0287-fa5a-45cd-bb02-d57b6d05b9f4');
+defined('RECIPIES_SPACE_GUID') or define('RECIPIES_SPACE_GUID', '7fdf550e-ef7c-4cf5-b33c-f228e623da26');
 require(__DIR__ . '/protected/vendor/autoload.php');
 require(__DIR__ . '/protected/vendor/yiisoft/yii2/Yii.php');
 

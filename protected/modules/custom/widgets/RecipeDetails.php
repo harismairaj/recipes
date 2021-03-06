@@ -4,6 +4,7 @@ namespace humhub\modules\custom\widgets;
 
 use humhub\modules\custom\models\Recipe;
 use yii\helpers\Url;
+use humhub\modules\custom\helpers\Seo as SeoHelper;
 
 class RecipeDetails extends \yii\base\Widget
 {
@@ -40,7 +41,7 @@ class RecipeDetails extends \yii\base\Widget
         }
         return $this->render('recipeDetails', [
             'object' => $this->object,
-            'permalink' => Url::to(['/content/perma', 'id' => $this->object->content->id], true),
+            'permalink' => SeoHelper::recipeURL(Url::base(true),$this->object->content->id,strip_tags($this->content)),
             'content' => $this->content,
             'details' => $managedArr
         ]);
