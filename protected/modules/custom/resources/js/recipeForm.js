@@ -240,7 +240,7 @@ humhub.module('recipeForm', function(module, require, $)
       },
       loadClient:function()
       {
-        gapi.client.setApiKey("AIzaSyBXOuYYgisI1JVInwP7NooF30WEjitFPD8");
+        gapi.client.setApiKey("AIzaSyDwV6Wut9SUXYbFLywjWyXDx9Lv5CUxFT8");
         return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
             .then(function()
             {
