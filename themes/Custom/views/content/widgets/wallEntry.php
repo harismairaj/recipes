@@ -43,7 +43,7 @@ foreach ($object->getLabels() as $label)
             </div>
 
             <!-- start: show wall entry options -->
-            <?php if ($renderControls) : ?>
+            <?php if ($renderControls && !Yii::$app->user->isGuest) { ?>
                 <ul class="nav nav-pills preferences">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"
@@ -65,13 +65,14 @@ foreach ($object->getLabels() as $label)
                         </ul>
                     </li>
                 </ul>
-            <?php endif; ?>
+            <?php } ?>
             <!-- end: show wall entry options -->
 
         </div>
     </div>
     <div class="panel-bottom">
       <div class="info-panel">
+        <span class="user-name"><?= Html::containerLink($user); ?></span>
         <?=
         UserImage::widget([
           'user' => $user,
@@ -79,7 +80,6 @@ foreach ($object->getLabels() as $label)
           'htmlOptions' => ['class' => 'author-image','data-contentcontainer-id' => $user->contentcontainer_id]
         ]);
         ?>
-        <?= Html::containerLink($user); ?>
         <?php if ($container && $showContentContainer): ?>
           <span class="viaLink">
             <i class="fa fa-caret-right" aria-hidden="true"></i>
@@ -110,6 +110,6 @@ foreach ($object->getLabels() as $label)
 <script type="text/javascript">
     $(document).ready(function ()
     {
-      recipePost.parallax();
+      // recipePost.parallax();
     });
 </script>

@@ -8,7 +8,7 @@ humhub.module('recipePost', function(module, require, $)
       youtubeFrame.html("<div class='play-button'></div><div class='img' style='background-image:url(https://img.youtube.com/vi/"+youtubeFrame.data("embed")+"/sddefault.jpg)'></div>");
       youtubeFrame.click(function()
       {
-        $(this).html("<iframe allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' height='100%' width='100%' frameborder='0' allowfullscreen='' class='youtube-styling' src='https://www.youtube.com/embed/" + $(this).data("embed") + "?rel=0&showinfo=0&autoplay=1'></iframe>");
+        $(this).html("<iframe allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' height='100%' width='100%' frameborder='0' allowfullscreen='' class='youtube-styling' src='https://www.youtube.com/embed/" + $(this).data("embed") + "?autoplay=1'></iframe>");
       });
     },
     chart:function(id,data)
