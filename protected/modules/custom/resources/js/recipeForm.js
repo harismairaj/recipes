@@ -6,6 +6,7 @@ humhub.module('recipeForm', function(module, require, $)
     {
       recipeForm.instructions.init(data.instruction);
       recipeForm.ingredient.init(data.ingredient);
+      recipeForm.google.init();
     },
     ingredient:{
       elm:null,
@@ -222,6 +223,58 @@ humhub.module('recipeForm', function(module, require, $)
           window.location.reload();
         }
       });
+    },
+    google:{
+      authenticate:function()
+      {
+        return gapi.auth2.getAuthInstance()
+            .signIn({scope: "https://www.googleapis.com/auth/youtube.readonly"})
+            .then(function()
+            {
+              console.log("Sign-in successful");
+            },
+            function(err)
+            {
+              console.error("Error signing in", err);
+            });
+      },
+      loadClient:function()
+      {
+        gapi.client.setApiKey("AIzaSyBXOuYYgisI1JVInwP7NooF30WEjitFPD8");
+        return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+            .then(function()
+            {
+              console.log("GAPI client loaded for API");
+            },
+            function(err)
+            {
+              console.error("Error loading GAPI client for API", err);
+            });
+      },
+      execute:function()
+      {
+        return gapi.client.youtube.channels.list({
+          "part": [
+            "contentDetails"
+          ],
+          "mine": true
+        }).then(function(response)
+        {
+          // Handle the results here (response.result has the parsed body).
+          console.log("Response", response);
+        },
+        function(err)
+        {
+          console.error("Execute error", err);
+        });
+      },
+      init:function()
+      {
+          gapi.load("client:auth2", function()
+          {
+            gapi.auth2.init({client_id: "737047011901-8k7lq8g4oiuqdkii0rue1rmb5i2vrpkl.apps.googleusercontent.com"});
+          });
+        }
     }
   };
 });

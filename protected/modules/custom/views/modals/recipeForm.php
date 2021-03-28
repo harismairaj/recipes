@@ -1,5 +1,4 @@
 <?php
-// use yii\helpers\Html;
   \humhub\modules\custom\assets\RecipeFormAsset::register($this);
 ?>
 <div class="modal-dialog modal-dialog-large animated fadeIn recipe-form">
@@ -70,6 +69,8 @@
                   YouTube Link
                 </div>
                 <div class="form-group">
+                  <button onclick="recipeForm.google.authenticate().then(recipeForm.google.loadClient)">authorize and load</button>
+                  <button onclick="recipeForm.google.execute()">execute</button>
                   <input type="text" class="form-control" name="embededVideo"
                   <?= (isset($embededVideo)?'data-id="'.$embededVideo["id"].'"':'') ?>
                   value="<?= (isset($embededVideo)?$embededVideo["text"]:"") ?>">

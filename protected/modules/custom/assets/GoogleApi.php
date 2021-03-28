@@ -6,19 +6,14 @@
  */
 namespace humhub\modules\custom\assets;
 use yii\web\AssetBundle;
-class RecipeFormAsset extends AssetBundle
+class GoogleApi extends AssetBundle
 {
     public $sourcePath = '@custom/resources';
     public $css = [];
     public $js = [
-        'js/recipeForm.js'
+        'js/api.js'
     ];
 
-    public $depends = [
-        // 'humhub\assets\AtJsAsset',
-        //'humhub\modules\custom\assets\textAreaHelperAsset',
-        'humhub\modules\custom\assets\DataTableAsset',
-        'humhub\modules\custom\assets\GoogleApi'
-    ];
+    public $depends = [];
 }
 ?>

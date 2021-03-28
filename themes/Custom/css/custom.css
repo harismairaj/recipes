@@ -89,7 +89,7 @@ body.user .main-actions .search-main-bar .fa-search {
 /* theme */
 body.user .modal .modal-title,
 body.user .modal .modal-title + small {
-    margin: 0 20px 0 20%;
+    margin: 0 20px 0 22%;
     position: relative;
 }
 body.user .modal .modal-title::before{
